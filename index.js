@@ -66,10 +66,25 @@ const init = async() => {
         zoom: 11,
     });
 
-    myMap.controls.remove('searchControl'); // удаляем поиск
-    myMap.controls.remove('trafficControl'); // удаляем контроль трафика
-    myMap.controls.remove('typeSelector'); // удаляем тип
+    myMap.controls.remove('searchControl');     // удаляем поиск
+    myMap.controls.remove('trafficControl');    // удаляем контроль трафика
+    myMap.controls.remove('typeSelector');      // удаляем тип
     myMap.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+
+    if (STORAGE.parkings) {
+        for (let index = 0; index < STORAGE.parkings.length; ++index) {
+            myMap.geoObjects.add(new ymaps.Placemark(STORAGE.parkings[index].coords, {
+                hintContent: STORAGE.parkings[index].address,
+                balloonContent: `${STORAGE.parkings[index].address}<br>
+                Количество свободных мест: ${STORAGE.parkings[index].free_lots.right_side.length
+                + STORAGE.parkings[index].free_lots.left_side.length}/${STORAGE.parkings[index].all_lots.left_side.number
+                + STORAGE.parkings[index].all_lots.right_side.number}`
+            }, {
+                preset: 'islands#icon',
+                iconColor: '#02006B'
+            }))
+        }
+    }
 };
 
 const renderParkings = async() => {
@@ -79,5 +94,24 @@ const renderParkings = async() => {
 
     ymaps.ready(init);
 };
+
+const renderInfo = async () => {
+    const parkingsListElement = document.querySelector('#parkings-list');
+
+    // Добавляем заголовок для списка парковок
+    const heading = document.createElement('h2');
+    heading.textContent = 'Список парковок';
+    parkingsListElement.appendChild(heading);
+
+    console.log('Parking Info');
+    console.log(STORAGE.parkings);
+
+    // Добавляем информацию о каждой парковке
+    STORAGE.parkings.forEach(parking => {
+        const parkingInfo = document.createElement('p');
+        parkingInfo.textContent = `Адрес: ${parking.address}, Количество свободных мест: ${parking.free_lots.right_side.length + parking.free_lots.left_side.length}/${parking.all_lots.left_side.number + parking.all_lots.right_side.number}`;
+        parkingsListElement.appendChild(parkingInfo);
+    });
+}
 
 renderParkings();
