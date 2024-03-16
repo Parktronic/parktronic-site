@@ -114,13 +114,15 @@ const renderInfo = async () => {
     console.log('Parking Info');
     console.log(STORAGE.parkings);
 
+    const parkingsList = document.createElement('ul');
+
     STORAGE.parkings.forEach(parking => {
-        const parkingInfo = document.createElement('div');
-        parkingInfo.classList.add('parking-info');
+        const parkingItem = document.createElement('li');
+        parkingItem.classList.add('parking-item');
 
         const address = document.createElement('p');
         address.textContent = `Адрес: ${parking.city}, ${parking.street}, ${parking.house}`;
-        parkingInfo.appendChild(address);
+        parkingItem.appendChild(address);
 
         let totalFreePlaces = 0;
         parking.rows.forEach(row => {
@@ -134,10 +136,12 @@ const renderInfo = async () => {
 
         const placesInfo = document.createElement('p');
         placesInfo.textContent = `Свободных мест: ${totalFreePlaces}/${totalPlaces}`;
-        parkingInfo.appendChild(placesInfo);
+        parkingItem.appendChild(placesInfo);
 
-        parkingsListElement.appendChild(parkingInfo);
+        parkingsList.appendChild(parkingItem);
     });
+
+    parkingsListElement.appendChild(parkingsList);
 }
 
 renderParkings();
