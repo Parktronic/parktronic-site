@@ -2,54 +2,53 @@ const express = require('express');
 const app = express();
 
 const parkings = [{
-        coords: [55.765610, 37.686165],
-        address: 'Лефортовская набережная',
-        free_lots: {
-            right_side: [1, 3],
-            left_side: [1]
-        },
-        all_lots: {
-            right_side: {
-                number: 26,
-                coords: [
-                    [55.765408, 37.685846],
-                    [55.765906, 37.686216]
-                ]
+        id: 19,
+        coordinates: [55.765610, 37.686165],
+        description: "Best parking",
+        city: "Москва",
+        street: "Лефортовская набережная",
+        house: "5",
+        camera: 2,
+        rows: [
+            {
+                coordinates: [[55.028492, 103.204934], [55.204929, 103.203020], [55.201344, 103.345022]],
+                capacity: 10,
+                free_places: [1, 2]
             },
-            left_side: {
-                number: 24,
-                coords: [
-                    [55.765316, 37.686098],
-                    [55.765845, 37.686505]
-                ]
+            {
+                coordinates: [[55.028492, 103.204934], [55.204929, 103.203020], [55.201344, 103.345022]],
+                capacity: 10,
+                free_places: [1, 2]
             },
-        },
+            {
+                coordinates: [[55.028492, 103.204934], [55.204929, 103.203020], [55.201344, 103.345022]],
+                capacity: 10,
+                free_places: []
+            }
+        ]
     },
     {
-        coords: [55.747165, 37.672475],
-        address: 'Съезжинский переулок',
-        free_lots: {
-            right_side: [1, 3, 5, 7],
-            left_side: [2, 4]
-        },
-        all_lots: {
-            right_side: {
-                number: 8,
-                coords: [
-                    [55.747197, 37.672306],
-                    [55.747214, 37.672656]
-                ]
+        id: 20,
+        coordinates: [55.747165, 37.672475],
+        description: "Best parking",
+        city: "Москва",
+        street: "Съезжинский переулок",
+        house: "7",
+        camera: 1,
+        rows: [
+            {
+                coordinates: [[55.028492, 103.204934], [55.204929, 103.203020], [55.201344, 103.345022]],
+                capacity: 6,
+                free_places: [1, 2]
             },
-            left_side: {
-                number: 7,
-                coords: [
-                    [55.747059, 37.672331],
-                    [55.747080, 37.672627]
-                ]
-            },
-        },
+            {
+                coordinates: [[55.028492, 103.204934], [55.204929, 103.203020], [55.201344, 103.345022]],
+                capacity: 7,
+                free_places: [1, 2, 5]
+            }
+        ]
     }
-]
+];
 
 app.get('/get_parkings', (req, res) => {
     res.status(200).json({ parkings });

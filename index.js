@@ -73,17 +73,25 @@ const init = async() => {
 
     if (STORAGE.parkings) {
         for (let index = 0; index < STORAGE.parkings.length; ++index) {
-            myMap.geoObjects.add(new ymaps.Placemark(STORAGE.parkings[index].coords, {
-                hintContent: STORAGE.parkings[index].address,
-                balloonContent: `${STORAGE.parkings[index].address}<br>
-                Количество свободных мест: ${STORAGE.parkings[index].free_lots.right_side.length
-                + STORAGE.parkings[index].free_lots.left_side.length}/${STORAGE.parkings[index].all_lots.left_side.number
-                + STORAGE.parkings[index].all_lots.right_side.number}`
-            }, {
-                preset: 'islands#icon',
-                iconColor: '#02006B'
-            }))
-        }
+        // Вычисляем общее количество мест и свободных мест для текущей парковки
+        let totalFreePlaces = 0;
+        let totalPlaces = 0;
+        STORAGE.parkings[index].rows.forEach(row => {
+            totalFreePlaces += row.free_places.length;
+            totalPlaces += row.capacity;
+        });
+
+        const balloonContent = `${STORAGE.parkings[index].city}, ${STORAGE.parkings[index].street}<br>
+            Количество свободных мест: ${totalFreePlaces}/${totalPlaces}`;
+
+        myMap.geoObjects.add(new ymaps.Placemark(STORAGE.parkings[index].coordinates, {
+            hintContent: `${STORAGE.parkings[index].city}, ${STORAGE.parkings[index].street}`,
+            balloonContent: balloonContent
+        }, {
+            preset: 'islands#icon',
+            iconColor: '#02006B'
+        }));
+    }
     }
 };
 
@@ -106,10 +114,28 @@ const renderInfo = async () => {
     console.log('Parking Info');
     console.log(STORAGE.parkings);
 
-    // Добавляем информацию о каждой парковке
     STORAGE.parkings.forEach(parking => {
-        const parkingInfo = document.createElement('p');
-        parkingInfo.textContent = `Адрес: ${parking.address}, Количество свободных мест: ${parking.free_lots.right_side.length + parking.free_lots.left_side.length}/${parking.all_lots.left_side.number + parking.all_lots.right_side.number}`;
+        const parkingInfo = document.createElement('div');
+        parkingInfo.classList.add('parking-info');
+
+        const address = document.createElement('p');
+        address.textContent = `Адрес: ${parking.city}, ${parking.street}, ${parking.house}`;
+        parkingInfo.appendChild(address);
+
+        let totalFreePlaces = 0;
+        parking.rows.forEach(row => {
+            totalFreePlaces += row.free_places.length;
+        });
+
+        let totalPlaces = 0;
+        parking.rows.forEach(row => {
+            totalPlaces += row.capacity;
+        });
+
+        const placesInfo = document.createElement('p');
+        placesInfo.textContent = `Свободных мест: ${totalFreePlaces}/${totalPlaces}`;
+        parkingInfo.appendChild(placesInfo);
+
         parkingsListElement.appendChild(parkingInfo);
     });
 }
