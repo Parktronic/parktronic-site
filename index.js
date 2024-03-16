@@ -5,7 +5,7 @@ const PUT_METHOD = 'PUT';
 
 const ROUTES_API = {
     get_parkings: {
-        url: 'http://localhost:8000/get_parkings',
+        url: 'https://cjr8b9lz-8000.euw.devtunnels.ms/parking_lots',
         method: GET_METHOD,
     },
     post_parkings: {
@@ -32,7 +32,7 @@ class API {
             const body = await res.json();
 
             if (res.ok) {
-                const parkings = body.parkings;
+                const parkings = body;
                 console.log('Все ок');
                 return { message: 'ok', parkings };
             }
@@ -81,7 +81,9 @@ const init = async() => {
             totalPlaces += row.capacity;
         });
 
-        const balloonContent = `${STORAGE.parkings[index].city}, ${STORAGE.parkings[index].street}<br>
+        console.log(STORAGE.parkings[index].coordinates);
+
+        const balloonContent = `${STORAGE.parkings[index].city}, ${STORAGE.parkings[index].street} ${STORAGE.parkings[index].house} <br>
             Количество свободных мест: ${totalFreePlaces}/${totalPlaces}`;
 
         myMap.geoObjects.add(new ymaps.Placemark(STORAGE.parkings[index].coordinates, {
