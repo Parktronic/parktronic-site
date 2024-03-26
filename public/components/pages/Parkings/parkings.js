@@ -72,7 +72,6 @@ export const renderParkings = async () => {
   const rootElement = document.querySelector('#root');
   rootElement.innerHTML = '';
 
-  renderSideBarMenu();
   rootElement.insertAdjacentHTML('beforeend', Handlebars.templates.parkings());
 
   ymaps.ready(init);
