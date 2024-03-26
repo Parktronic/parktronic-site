@@ -9,6 +9,28 @@
         margin: 0px;
         padding: 0px;
     }
+
+    .side-bar-menu__close {
+        transform: translate(-250px, 0);
+    }
+
+    .side-bar-menu__close #side-bar-menu-close-span {
+        right: 100px;
+    }
+
+    .side-bar-menu__open {
+        transform: translate(0, 0);
+    }
+
+    .side-bar-menu__open #side-bar-menu-close-span {
+        top: 6px;
+        right: 80px;
+    }
+
+    #side-bar-menu-close-span {
+        font-size: 36px;
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: 768px) {

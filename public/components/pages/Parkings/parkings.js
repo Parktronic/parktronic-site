@@ -1,6 +1,7 @@
 import {API} from '../../../modules/api.js';
 import {removeMessage, renderMessage} from '../../Message/message.js';
 import {STORAGE} from '../../../modules/storage.js';
+import {renderSideBarMenu} from "../../SideBarMenu/sideBarMenu.js";
 
 const countLots = (parking_rows) => {
   let freeLotsCounter = 0;
@@ -72,6 +73,7 @@ export const renderParkings = async () => {
   const rootElement = document.querySelector('#root');
   rootElement.innerHTML = '';
 
+  renderSideBarMenu();
   rootElement.insertAdjacentHTML('beforeend', Handlebars.templates.parkings());
 
   ymaps.ready(init);

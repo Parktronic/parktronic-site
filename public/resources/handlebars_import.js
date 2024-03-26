@@ -4,3 +4,5 @@ import '../components/PopUpWindow/popup_window.precompiled.js';
 import '../components/pages/Parkings/parkings.precompiled.js';
 import '../components/pages/Login/login.precompiled.js';
 import '../components/pages/Signup/signup.precompiled.js';
+import '../components/SideBarMenu/sideBarMenu.precompiled.js';
+import '../components/ParkingInfo/parking_info.precompiled.js'
