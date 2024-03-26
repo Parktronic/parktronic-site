@@ -1,6 +1,12 @@
 import {ROUTES} from '../../../config.js';
 import {API} from '../../../modules/api.js';
 import {renderMessage, removeMessage} from '../../Message/message.js';
+import {
+  nameValidation,
+  emailValidation,
+  passwordValidation,
+  usernameValidation,
+} from '../../../modules/validation.js';
 import {goToPage} from '../../../modules/router.js';
 import {STORAGE} from '../../../modules/storage.js';
 import {navbar} from "../../Navbar/navbar.js";
@@ -54,28 +60,65 @@ export const renderSignup = async () => {
   const password = document.querySelector('#password');
   const repeatPassword = document.querySelector('#repeat_password');
 
+  let isNameValid = true;
+  let isEmailValid = true;
+  let isUsernameValid = true;
+  let isPasswordValid = true;
+
   firstName.addEventListener("input", debounce((e) => {
     e.preventDefault();
 
-    removeMessage();
+    const nameValid = nameValidation(firstName.value);
+
+    if (nameValid.valid) {
+      removeMessage();
+      isNameValid = true;
+    } else {
+      renderMessage(nameValid.message, true);
+      isNameValid = false;
+    }
   }, 500));
 
   email.addEventListener("input", debounce((e) => {
     e.preventDefault();
 
-    removeMessage();
+    const emailValid = emailValidation(e.target.value);
+
+    if (emailValid.valid) {
+      removeMessage();
+      isEmailValid = true;
+    } else {
+      renderMessage(emailValid.message, true);
+      isEmailValid = false;
+    }
   }, 500));
 
   username.addEventListener("input", debounce((e) => {
     e.preventDefault();
 
-    removeMessage();
+    const usernameValid = usernameValidation(e.target.value);
+
+    if (usernameValid.valid) {
+      removeMessage();
+      isUsernameValid = true;
+    } else {
+      renderMessage(usernameValid.message, true);
+      isUsernameValid = false;
+    }
   }, 500) );
 
   password.addEventListener("input", debounce((e) => {
     e.preventDefault();
 
-    removeMessage();
+    const passwordValid = passwordValidation(e.target.value);
+
+    if (passwordValid.valid) {
+      removeMessage();
+      isPasswordValid = true;
+    } else {
+      renderMessage(passwordValid.message, true);
+      isPasswordValid = false;
+    }
   }, 500));
 
   const signupButton = document.querySelector('#signup-button');
@@ -85,6 +128,10 @@ export const renderSignup = async () => {
     if (password.value === '' || email.value === '' || firstName.value === ''
         || username.value === '' || repeatPassword.value === '') {
       renderMessage('Вы ввели не все данные', true);
+      return;
+    }
+
+    if (!isNameValid || !isEmailValid || !isUsernameValid || !isPasswordValid) {
       return;
     }
 

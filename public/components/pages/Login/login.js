@@ -1,6 +1,7 @@
 import {ROUTES} from '../../../config.js';
 import {API} from '../../../modules/api.js';
 import {renderMessage, removeMessage} from '../../Message/message.js';
+import {emailValidation, passwordValidation} from '../../../modules/validation.js';
 import {goToPage} from '../../../modules/router.js';
 import {STORAGE} from '../../../modules/storage.js';
 import {toggleFunc} from "../Signup/signup.js";
@@ -31,23 +32,46 @@ export const renderLogin = async () => {
     toggleFunc(password, icon);
   });
 
+  let isEmailValid = true;
+  let isPasswordValid = true;
+
   const email = document.querySelector('#email');
   const password = document.querySelector('#password');
 
   email.addEventListener("input", debounce((e) => {
     e.preventDefault();
 
-    removeMessage();
+    const emailValid = emailValidation(e.target.value);
+
+    if (emailValid.valid) {
+      removeMessage();
+      isEmailValid = true;
+    } else {
+      renderMessage(emailValid.message, true);
+      isEmailValid = false;
+    }
   }, 500));
 
   password.addEventListener("input", debounce((e) => {
     e.preventDefault();
 
-    removeMessage();
+    const passwordValid = passwordValidation(e.target.value);
+
+    if (passwordValid.valid) {
+      removeMessage();
+      isPasswordValid = true;
+    } else {
+      renderMessage(passwordValid.message, true);
+      isPasswordValid = false;
+    }
   }, 500));
 
   loginButton.addEventListener('click', async (e) => {
     e.preventDefault();
+
+    if (!isEmailValid || !isPasswordValid) {
+      return;
+    }
 
     try {
       const api = new API();
