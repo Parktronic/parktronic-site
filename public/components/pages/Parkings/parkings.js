@@ -67,10 +67,13 @@ const init = async () => {
  * @return {void}
  */
 export const renderParkings = async () => {
+  removeMessage();
+
   const rootElement = document.querySelector('#root');
   rootElement.innerHTML = '';
 
-  rootElement.insertAdjacentHTML('beforeend', '<div class="map" id="map" style="width: 100%; height: 400px;"></div>');
+  renderSideBarMenu();
+  rootElement.insertAdjacentHTML('beforeend', Handlebars.templates.parkings());
 
   ymaps.ready(init);
 };

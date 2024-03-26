@@ -14,10 +14,11 @@ import {STORAGE} from '../../modules/storage.js';
  */
 export const navbar = () => {
   const navbarElement = document.querySelector('#navbar');
-  navbarElement.innerHTML = '<button class="secondary-button" id="navbar-login-button">Войти</button><button class="secondary-button" id="navbar-signup-button">Регистрация</button>';
+  navbarElement.innerHTML = '';
 
   const user = STORAGE.user;
   if (!user) {
+    navbarElement.innerHTML = Handlebars.templates.navbar();
     const loginButton = document.querySelector('#navbar-login-button');
     loginButton.addEventListener('click', () => {
       goToPage(ROUTES.login);
@@ -26,6 +27,15 @@ export const navbar = () => {
     const signupButton = document.querySelector('#navbar-signup-button');
     signupButton.addEventListener('click', () => {
       goToPage(ROUTES.signup);
+    });
+    const logoButton = document.querySelector('#navbar-logo-label');
+    logoButton.addEventListener('click', () => {
+      removeMessage();
+      if (!STORAGE.user) {
+        goToPage(ROUTES.main);
+      } else {
+        goToPage(ROUTES.parkings);
+      }
     });
   }
 };

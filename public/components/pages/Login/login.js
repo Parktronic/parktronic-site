@@ -18,28 +18,8 @@ export const renderLogin = async () => {
   removeMessage();
 
   const rootElement = document.querySelector('#root');
-  rootElement.innerHTML = '<div class="auth-container"> \
-                            <form class="auth-container__form"> \
-                                <div class="login-form"> \
-                                    <div class="login-form_container"> \
-                                        <h3>Вход</h3><br> \
-                                        <div class="login-form_container__input-container"> \
-                                            <input class="login-form_container__input" type="email" placeholder="Почта" id="email" name="email" required><br> \
-                                        </div> \
-                                        <div class="login-form_container__input-container"> \
-                                            <input class="login-form_container__input" type="password" placeholder="Пароль" id="password" name="password" required> \
-                                            <i id="login-form_container__input-show-button" class="login-form_container__input-show-button" > \
-                                                <span id="login-form_container__input-show-button-icon" class="material-symbols-outlined">visibility</span> \
-                                            </i> \
-                                        </div> \
-                                        <div class="button-container"> \
-                                            <button class="secondary-button" type="submit" id="login-button">Войти</button> \
-                                            <button class="primary-button" type="submit" id="signup-button">Регистрация</button> \
-                                        </div> \
-                                    </div> \
-                                </div> \
-                            </form> \
-                        </div>';
+  rootElement.innerHTML = '';
+  rootElement.innerHTML = Handlebars.templates.login();
 
   const loginButton = document.querySelector('#login-button');
   const signupButton = document.querySelector('#signup-button');

@@ -14,19 +14,9 @@ export const renderMain = () => {
     return;
   }
   const rootElement = document.querySelector('#root');
-  rootElement.innerHTML = '<div class="index"> \
-                              <h3>Добро пожаловать на Parktronic!</h3> \
-                              <div class="index_content-container"> \
-                                  <div class="index_content-container_description"> \
-                                      Проект "Parktronic" - это умный сервис для поиска свободных парковочных мест.<br> \
-                                      Для начала использования войдите в аккаунт или создайте его. \
-                                      <div class="button-container"> \
-                                          <button class="secondary-button" id="index-forms-button">Опробовать Parktronic</button> \
-                                      </div> \
-                                      <a>Нет аккаунта?  <span id="index-signup-button">Зарегистрируйтесь бесплатно</span></a> \
-                                  </div> \
-                              </div> \
-                          </div>';
+  rootElement.innerHTML = '';
+  rootElement.innerHTML = Handlebars.templates.main();
+
 
   const formsButton = document.querySelector('#index-forms-button');
   formsButton.addEventListener('click', () => {
