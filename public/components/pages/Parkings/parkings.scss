@@ -1,5 +1,4 @@
 @media screen and (min-width: 768px) {
-
     html,
     body,
     #map,
@@ -9,24 +8,19 @@
         margin: 0px;
         padding: 0px;
     }
-
     .side-bar-menu__close {
         transform: translate(-250px, 0);
-
         #side-bar-menu-close-span {
             right: 100px;
         }
     }
-
     .side-bar-menu__open {
         transform: translate(0, 0);
-
         #side-bar-menu-close-span {
             top: 6px;
             right: 80px;
         }
     }
-
     #side-bar-menu-close-span {
         font-size: 36px;
         cursor: pointer;
@@ -37,15 +31,12 @@
     .forms_list-container {
         margin: 32px 40px;
     }
-
     .forms_title-container {
         margin: 0 auto 15px;
-
         h3 {
             font-size: 26px;
         }
     }
-
     .forms_title-container_button-container {
         button {
             width: 40px;
@@ -53,19 +44,15 @@
             font-size: 24px;
         }
     }
-
     .forms_search-container {
         margin-bottom: 30px;
-
         .forms_search-container__button {
             content-visibility: hidden;
             width: 45px;
         }
     }
-
     .forms__loading-screen {
         top: 190px;
-
         img {
             width: 40px;
             height: 40px;
@@ -78,7 +65,6 @@
     .forms_list-container {
         margin: 32px 15px;
     }
-
     .forms_search-container {
         .forms_search-container__input {
             min-width: 210px;

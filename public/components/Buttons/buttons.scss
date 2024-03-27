@@ -17,7 +17,6 @@ input {
     border: 1px solid #424242;
     width: 100%;
     font-weight: bold;
-
     &:hover {
         opacity: 0.6;
         cursor: pointer;
@@ -37,6 +36,13 @@ input {
     color: black;
 }
 
+.black-button {
+    @extend %button-common;
+    background-color: #000000;
+    color: white;
+    border-radius: 9px;
+}
+
 .red-button {
     @extend %button-common;
     background-color: #da2d28;
@@ -44,6 +50,13 @@ input {
     border-radius: 8px;
 }
 
+.outline-button {
+    @extend %button-common;
+    background-color: #02006B;
+    color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+}
 
 .button__disabled {
     opacity: 0.6;

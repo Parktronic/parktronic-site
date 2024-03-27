@@ -18,7 +18,6 @@
 }
 
 @media screen {
-
     .success-container,
     .error-container {
         padding-top: 10px;
@@ -28,7 +27,6 @@
 }
 
 @media screen and (min-width: 480px) {
-
     .success-container,
     .error-container {
         padding-top: 9px;
@@ -38,7 +36,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
     .success-container,
     .error-container {
         padding-top: 10px;
@@ -46,5 +43,6 @@
         font-size: 18px;
     }
 }
+
 
 /*# sourceMappingURL=message.css.map */

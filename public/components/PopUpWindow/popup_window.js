@@ -9,43 +9,43 @@
  * @return {void}
  */
 export const renderPopUpWindow = (titleText, messageText, error = false, action = null) => {
-  const popupContainer = document.querySelector('#popup');
-  popupContainer.innerHTML = Handlebars.templates.popup_window();
+    const popupContainer = document.querySelector('#popup');
+    popupContainer.innerHTML = Handlebars.templates.popup_window();
 
-  disableScroll();
+    disableScroll();
 
-  if (error) {
-    document.querySelector('#popup-ok-button').classList.add('red-button');
-  } else {
-    document.querySelector('#popup-ok-button').classList.add('secondary-button');
-  }
-
-  const title = document.querySelector('#popup-title');
-  title.textContent = titleText;
-
-  const message = document.querySelector('#popup-message');
-  message.textContent = messageText;
-
-  const cancelButton = document.querySelector('#popup-cancel-button');
-  cancelButton.addEventListener('click', () => {
-    // eslint-disable-next-line no-use-before-define
-    closePopUpWindow();
-  });
-  const okButton = document.querySelector('#popup-ok-button');
-  okButton.addEventListener('click', () => {
-    action();
-  });
-
-  const closePopUpWindowByBody = (e) => {
-    if (!e.target.classList.contains('popup_window')
-        && !e.target.parentNode.classList.contains('popup_window')
-        && !e.target.parentNode.classList.contains('button-container')) {
-      document.body.removeEventListener('click', closePopUpWindowByBody);
-      // eslint-disable-next-line no-use-before-define
-      closePopUpWindow();
+    if (error) {
+        document.querySelector('#popup-ok-button').classList.add('red-button');
+    } else {
+        document.querySelector('#popup-ok-button').classList.add('secondary-button');
     }
-  };
-  document.body.addEventListener('click', closePopUpWindowByBody);
+
+    const title = document.querySelector('#popup-title');
+    title.textContent = titleText;
+
+    const message = document.querySelector('#popup-message');
+    message.textContent = messageText;
+
+    const cancelButton = document.querySelector('#popup-cancel-button');
+    cancelButton.addEventListener('click', () => {
+        // eslint-disable-next-line no-use-before-define
+        closePopUpWindow();
+    });
+    const okButton = document.querySelector('#popup-ok-button');
+    okButton.addEventListener('click', () => {
+        action();
+    });
+
+    const closePopUpWindowByBody = (e) => {
+        if (!e.target.classList.contains('popup_window') &&
+            !e.target.parentNode.classList.contains('popup_window') &&
+            !e.target.parentNode.classList.contains('button-container')) {
+            document.body.removeEventListener('click', closePopUpWindowByBody);
+            // eslint-disable-next-line no-use-before-define
+            closePopUpWindow();
+        }
+    };
+    document.body.addEventListener('click', closePopUpWindowByBody);
 };
 
 /**
@@ -55,15 +55,15 @@ export const renderPopUpWindow = (titleText, messageText, error = false, action 
  * @return {void}
  */
 export const closePopUpWindow = () => {
-  enableScroll();
-  const messageContainer = document.querySelector('#popup');
-  messageContainer.innerHTML = '';
+    enableScroll();
+    const messageContainer = document.querySelector('#popup');
+    messageContainer.innerHTML = '';
 };
 
 function disableScroll() {
-  document.body.classList.add("stop-scrolling");
+    document.body.classList.add("stop-scrolling");
 }
 
 function enableScroll() {
-  document.body.classList.remove("stop-scrolling");
+    document.body.classList.remove("stop-scrolling");
 }

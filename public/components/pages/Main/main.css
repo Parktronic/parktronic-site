@@ -52,20 +52,17 @@
     .index_content-container {
         flex-wrap: wrap;
     }
-
     .index_content-container_description__picture {
         max-width: none;
         width: 80%;
         margin: 0 100px;
     }
-
     .index_content-container_description {
         margin: 0 50px 25px 50px;
         max-width: none;
         text-align: center;
         align-items: center;
     }
-
     .index_content-container_description button {
         margin: 0 auto;
         width: 400px;
@@ -76,31 +73,25 @@
     .index {
         margin-top: 60px;
     }
-
     .index h3 {
         font-size: 32px;
         margin: 0 40px 30px 40px;
     }
-
     .index_content-container_description {
         margin: 0 40px 20px 40px;
         font-size: 20px;
     }
-
     .index_content-container_description .button-container {
         margin: 40px 0 20px 0;
     }
-
     .index_content-container_description .button-container button {
         font-size: 16px;
         padding: 20px 12px;
         width: 300px;
     }
-
     .index_content-container_description a {
         font-size: 18px;
     }
-
     .index_content-container_description__picture {
         display: none;
     }
@@ -110,23 +101,20 @@
     .index {
         margin-top: 40px;
     }
-
     .index h3 {
         margin: 30px 15px 20px 15px;
     }
-
     .index_content-container_description .button-container {
         margin: 32px 0 16px 0;
     }
-
     .index_content-container_description .button-container button {
         padding: 10px;
         width: 250px;
     }
-
     .index_content-container_description__picture {
         width: 100%;
     }
 }
+
 
 /*# sourceMappingURL=ParkingInfo.css.map */

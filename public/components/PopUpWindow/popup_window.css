@@ -46,7 +46,6 @@
         height: 150px;
         font-size: 18px;
     }
-
     .popup_window p {
         height: 67px;
     }
@@ -59,11 +58,11 @@
         height: 140px;
         font-size: 18px;
     }
-
     .popup_window p {
         margin-top: 8px;
         height: 63px;
     }
 }
+
 
 /*# sourceMappingURL=popup_window.css.map */

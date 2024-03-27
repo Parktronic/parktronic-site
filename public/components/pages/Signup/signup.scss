@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin: 20px 24px 0 24px;
-
     .button-container {
         margin: 20px 24px;
         font-size: 15px;
@@ -12,7 +11,6 @@
 .signup-form_container__input-container {
     display: flex;
 }
-
 
 .signup-form_container__input {
     height: 40px;
@@ -38,12 +36,10 @@
             font-size: 22px;
             margin: 0;
         }
-
         button {
             font-size: 14px;
         }
     }
-
     .signup-form_container__input {
         font-size: 18px;
     }
@@ -55,12 +51,10 @@
             font-size: 30px;
             margin-bottom: 20px;
         }
-
         .signup-form_container__input {
             width: 100%;
             font-size: 18px;
         }
-
         .button-container {
             margin: 40px 0;
         }

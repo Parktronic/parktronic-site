@@ -21,6 +21,12 @@
     cursor: pointer;
 }
 
+.navbar .navbar_profile {
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
 .navbar_button-container {
     display: flex;
 }
@@ -29,17 +35,18 @@
     .navbar {
         padding: 10px 22px;
     }
-
     .navbar .navbar_logo a {
         font-size: 22px;
     }
-
+    .navbar .navbar_profile__picture {
+        height: 42px;
+        width: 42px;
+    }
     .navbar_button-container button {
         height: 38px;
         font-size: 17px;
         width: 70px;
     }
-
     .navbar_button-container #navbar-signup-button {
         display: none;
     }
@@ -49,17 +56,26 @@
     .navbar .navbar_logo a {
         font-size: 22px;
     }
-
+    .navbar .navbar_profile {
+        margin-left: 40px;
+    }
+    .navbar .navbar_profile .navbar_profile__picture {
+        height: 42px;
+        width: 42px;
+        margin: 0;
+    }
+    .navbar .navbar_profile .navbar_profile__name {
+        display: flex;
+        font-size: 20px;
+    }
     .navbar_button-container {
         padding: 2px 0;
     }
-
     .navbar_button-container button {
         height: 38px;
         width: 100px;
         margin-left: 8px;
     }
-
     .navbar_button-container #navbar-signup-button {
         display: block;
     }
@@ -69,21 +85,23 @@
     .navbar .navbar_logo a {
         font-size: 29px;
     }
-
     .navbar .navbar_logo a span {
         font-size: 36px;
         margin: 0;
     }
-
+    .navbar .navbar_profile__name {
+        display: flex;
+        font-size: 24px;
+    }
     .navbar_button-container {
         padding: 2px 0;
     }
-
     .navbar_button-container button {
         height: 46px;
         width: 150px;
         margin-left: 10px;
     }
 }
+
 
 /*# sourceMappingURL=navbar.css.map */

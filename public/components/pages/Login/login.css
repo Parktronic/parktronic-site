@@ -51,16 +51,13 @@
     .auth-container {
         margin: 50px 0;
     }
-
     .login-form_container h3 {
         font-size: 22px;
         margin: 0;
     }
-
     .login-form_container button {
         font-size: 14px;
     }
-
     .login-form_container__input {
         font-size: 18px;
     }
@@ -72,22 +69,20 @@
         margin: 0 10px;
         width: initial;
     }
-
     .login-form_container h3 {
         font-size: 30px;
         margin-bottom: 20px;
     }
-
     .login-form_container .login-form_container__input {
         width: 100%;
         font-size: 18px;
     }
-
     .login-form_container .button-container {
         margin: 40px 0;
         gap: 10px;
         flex-flow: column;
     }
 }
+
 
 /*# sourceMappingURL=login.css.map */
