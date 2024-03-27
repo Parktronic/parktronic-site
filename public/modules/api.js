@@ -19,7 +19,7 @@ export class API {
    */
   async isAuth() {
     try {
-      const url =  ROUTES_API.isAuth.url;
+      const url = ROUTES_API.isAuth.url;
 
       const res = await fetch(url, {
         method: GET_METHOD,
@@ -56,7 +56,7 @@ export class API {
    */
   async userLogin(email, password) {
     try {
-      const url =  ROUTES_API.login.url;
+      const url = ROUTES_API.login.url;
 
       const res = await fetch(url, {
         method: POST_METHOD,
@@ -135,7 +135,7 @@ export class API {
   // eslint-disable-next-line camelcase
   async userSignup(first_name, username, email, password, avatar = '') {
     try {
-      const url =  ROUTES_API.signup.url;
+      const url = ROUTES_API.signup.url;
 
       const res = await fetch(url, {
         method: POST_METHOD,
@@ -182,7 +182,7 @@ export class API {
    */
   async getParkings() {
     try {
-      let url =  ROUTES_API.get_parkings.url;
+      let url = backendUrl + ROUTES_API.get_parkings.url;
 
       const res = await fetch(url, {
         method: GET_METHOD,
@@ -192,7 +192,8 @@ export class API {
       const body = await res.json();
 
       if (res.ok) {
-        const parkings = body.parkings;
+        const parkings = body['parkings'];
+        console.log(parkings);
         return {message: 'ok', parkings};
       }
 
@@ -263,6 +264,7 @@ export class API {
   async getParkingView(id) {
     try {
       const url = backendUrl + ROUTES_API.view.url + `?id=${id}`;
+      console.log(url)
 
       const res = await fetch(url, {
         method: GET_METHOD,

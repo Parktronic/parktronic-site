@@ -34,7 +34,8 @@ export const ROUTES = {
 };
 
 const domain = 'localhost';
-export const backendUrl = `http://${domain}:8000`;
+// export const backendUrl = `http://${domain}:8000`;
+export const backendUrl = `https://cjr8b9lz-8000.euw.devtunnels.ms`;
 export const frontendUrl = `http://${domain}:8000`;
 
 const GET_METHOD = 'GET';
@@ -58,7 +59,7 @@ export const ROUTES_API = {
     method: POST_METHOD,
   },
   get_parkings: {
-    url: '/get_parkings',
+    url: '/parking_lots',
     method: GET_METHOD,
   },
   post_parkings: {
