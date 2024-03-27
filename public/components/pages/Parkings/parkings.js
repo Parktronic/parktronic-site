@@ -80,6 +80,8 @@ const init = async() => {
         for (let index = 0; index < STORAGE.parkings.length; ++index) {
             const lots = countLots(STORAGE.parkings[index].parking_rows);
 
+            console.log()
+
             const hintContent = STORAGE.parkings[index].address
             const balloonContent = `${STORAGE.parkings[index].address}<br>
                               Количество свободных мест: ${lots.freeLotsCounter}/${lots.allLotsCounter}`;
@@ -221,7 +223,8 @@ const init = async() => {
                     const green_color = "rgb(91,243,82)";
                     const red_color = "rgb(243,91,82)";
                     let color;
-                    if (parkingRows[rowIndex].free_spaces.includes(lotIndex)) {
+                    // На сервере нумерация мест начинается с 1
+                    if (parkingRows[rowIndex].free_spaces.includes(lotIndex + 1)) {
                         color = green_color;
                     } else {
                         color = red_color;

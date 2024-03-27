@@ -33,15 +33,15 @@ app.use(cookie());
 
 const parkings = [{
         coords: [55.747165, 37.672475],
-        address: 'Съезжинский переулок\n',
+        address: 'Москва, Съезжинский_переулок, 3\n',
         parking_rows: [{
                 coords: [
                     [55.747214, 37.672645],
                     [55.747197, 37.672313],
                     [55.747170, 37.672650]
                 ],
-                number: 8,
-                free_spaces: [1, 2, 3, 4, 5, 6],
+                number: 23,
+                free_spaces: [1, 2, 3],
             },
             {
                 coords: [
@@ -49,8 +49,8 @@ const parkings = [{
                     [55.747140, 37.672625],
                     [55.747059, 37.672320]
                 ],
-                number: 7,
-                free_spaces: [1, 2, 4, 5, 6],
+                number: 10,
+                free_spaces: [1, 2],
             },
         ],
     },

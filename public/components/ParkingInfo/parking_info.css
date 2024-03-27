@@ -1,19 +1,16 @@
 .parking-info {
-    margin: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
-    box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+  margin: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
 }
-
 .parking-info .parking-info__lots {
-    margin-top: 5px;
+  margin-top: 5px;
 }
-
 .parking-info .secondary-button {
-    margin-top: 10px;
-    width: 100px;
+  margin-top: 10px;
+  width: 100px;
 }
-
 
 /*# sourceMappingURL=parking_info.css.map */

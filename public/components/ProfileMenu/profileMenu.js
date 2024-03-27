@@ -15,7 +15,7 @@ export const renderProfileMenu = () => {
         return;
     }
 
-    const navbarElement = document.querySelector('#navbar');
+    const navbarElement = document.querySelector('#root');
     navbarElement.innerHTML += Handlebars.templates.profileMenu();
 
     // Функция убирающая рендер меню, а так же убирающая event listener клика по области вне нее

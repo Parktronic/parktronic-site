@@ -1,70 +1,60 @@
 .button-container {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 
 button {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 input {
-    border: 1px solid #424242;
+  border: 1px solid #424242;
 }
 
-.outline-button,
-.red-button,
-.black-button,
-.primary-button,
-.secondary-button {
-    padding: 10px 12px;
-    border-radius: 9px;
-    border: 1px solid #424242;
-    width: 100%;
-    font-weight: bold;
+.outline-button, .red-button, .black-button, .primary-button, .secondary-button {
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid #424242;
+  width: 100%;
+  font-weight: bold;
 }
-
-.outline-button:hover,
-.red-button:hover,
-.black-button:hover,
-.primary-button:hover,
-.secondary-button:hover {
-    opacity: 0.6;
-    cursor: pointer;
+.outline-button:hover, .red-button:hover, .black-button:hover, .primary-button:hover, .secondary-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .secondary-button {
-    background-color: #02006B;
-    color: white;
-    border: none;
+  background-color: #02006B;
+  color: white;
+  border: none;
 }
 
 .primary-button {
-    background-color: #f5f5f5;
-    color: black;
+  background-color: #f5f5f5;
+  color: black;
 }
 
 .black-button {
-    background-color: #000000;
-    color: white;
-    border-radius: 9px;
+  background-color: #000000;
+  color: white;
+  border-radius: 9px;
 }
 
 .red-button {
-    background-color: #da2d28;
-    color: white;
-    border-radius: 8px;
+  background-color: #da2d28;
+  color: white;
+  border-radius: 8px;
 }
 
 .outline-button {
-    background-color: #02006B;
-    color: white;
-    border-radius: 8px;
-    border: 1px solid white;
+  background-color: #02006B;
+  color: white;
+  border-radius: 8px;
+  border: 1px solid white;
 }
 
 .button__disabled {
-    opacity: 0.6;
+  opacity: 0.6;
 }
-
 
 /*# sourceMappingURL=buttons.css.map */

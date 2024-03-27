@@ -1,107 +1,100 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f1f1f1;
-    color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  color: #ffffff;
 }
-
 .navbar .navbar_logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
-
 .navbar .navbar_logo span {
-    font-size: 32px;
-    margin: 0 6px 2px 0;
+  font-size: 32px;
+  margin: 0 6px 2px 0;
 }
-
 .navbar .navbar_logo a {
-    font-weight: 700;
-    cursor: pointer;
+  font-weight: 700;
+  cursor: pointer;
 }
-
 .navbar .navbar_profile {
-    display: flex;
-    justify-content: space-evenly;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
 }
 
 .navbar_button-container {
-    display: flex;
+  display: flex;
 }
 
 @media screen {
-    .navbar {
-        padding: 10px 22px;
-    }
-    .navbar .navbar_logo a {
-        font-size: 22px;
-    }
-    .navbar .navbar_profile__picture {
-        height: 42px;
-        width: 42px;
-    }
-    .navbar_button-container button {
-        height: 38px;
-        font-size: 17px;
-        width: 70px;
-    }
-    .navbar_button-container #navbar-signup-button {
-        display: none;
-    }
+  .navbar {
+    padding: 10px 22px;
+  }
+  .navbar .navbar_logo a {
+    font-size: 22px;
+  }
+  .navbar .navbar_profile__picture {
+    height: 42px;
+    width: 42px;
+  }
+  .navbar_button-container button {
+    height: 38px;
+    font-size: 17px;
+    width: 70px;
+  }
+  .navbar_button-container #navbar-signup-button {
+    display: none;
+  }
 }
-
 @media screen and (min-width: 480px) {
-    .navbar .navbar_logo a {
-        font-size: 22px;
-    }
-    .navbar .navbar_profile {
-        margin-left: 40px;
-    }
-    .navbar .navbar_profile .navbar_profile__picture {
-        height: 42px;
-        width: 42px;
-        margin: 0;
-    }
-    .navbar .navbar_profile .navbar_profile__name {
-        display: flex;
-        font-size: 20px;
-    }
-    .navbar_button-container {
-        padding: 2px 0;
-    }
-    .navbar_button-container button {
-        height: 38px;
-        width: 100px;
-        margin-left: 8px;
-    }
-    .navbar_button-container #navbar-signup-button {
-        display: block;
-    }
+  .navbar .navbar_logo a {
+    font-size: 22px;
+  }
+  .navbar .navbar_profile {
+    margin-left: 40px;
+  }
+  .navbar .navbar_profile .navbar_profile__picture {
+    height: 42px;
+    width: 42px;
+    margin: 0;
+  }
+  .navbar .navbar_profile .navbar_profile__name {
+    display: flex;
+    font-size: 20px;
+  }
+  .navbar_button-container {
+    padding: 2px 0;
+  }
+  .navbar_button-container button {
+    height: 38px;
+    width: 100px;
+    margin-left: 8px;
+  }
+  .navbar_button-container #navbar-signup-button {
+    display: block;
+  }
 }
-
 @media screen and (min-width: 768px) {
-    .navbar .navbar_logo a {
-        font-size: 29px;
-    }
-    .navbar .navbar_logo a span {
-        font-size: 36px;
-        margin: 0;
-    }
-    .navbar .navbar_profile__name {
-        display: flex;
-        font-size: 24px;
-    }
-    .navbar_button-container {
-        padding: 2px 0;
-    }
-    .navbar_button-container button {
-        height: 46px;
-        width: 150px;
-        margin-left: 10px;
-    }
+  .navbar .navbar_logo a {
+    font-size: 29px;
+  }
+  .navbar .navbar_logo a span {
+    font-size: 36px;
+    margin: 0;
+  }
+  .navbar .navbar_profile__name {
+    display: flex;
+    font-size: 24px;
+  }
+  .navbar_button-container {
+    padding: 2px 0;
+  }
+  .navbar_button-container button {
+    height: 46px;
+    width: 150px;
+    margin-left: 10px;
+  }
 }
-
 
 /*# sourceMappingURL=navbar.css.map */
