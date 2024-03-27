@@ -103,18 +103,22 @@ input {
     .navbar {
         padding: 10px 22px;
     }
+
     .navbar .navbar_logo a {
         font-size: 22px;
     }
+
     .navbar .navbar_profile__picture {
         height: 42px;
         width: 42px;
     }
+
     .navbar_button-container button {
         height: 38px;
         font-size: 17px;
         width: 70px;
     }
+
     .navbar_button-container #navbar-signup-button {
         display: none;
     }
@@ -124,26 +128,32 @@ input {
     .navbar .navbar_logo a {
         font-size: 22px;
     }
+
     .navbar .navbar_profile {
         margin-left: 40px;
     }
+
     .navbar .navbar_profile .navbar_profile__picture {
         height: 42px;
         width: 42px;
         margin: 0;
     }
+
     .navbar .navbar_profile .navbar_profile__name {
         display: flex;
         font-size: 20px;
     }
+
     .navbar_button-container {
         padding: 2px 0;
     }
+
     .navbar_button-container button {
         height: 38px;
         width: 100px;
         margin-left: 8px;
     }
+
     .navbar_button-container #navbar-signup-button {
         display: block;
     }
@@ -153,17 +163,21 @@ input {
     .navbar .navbar_logo a {
         font-size: 29px;
     }
+
     .navbar .navbar_logo a span {
         font-size: 36px;
         margin: 0;
     }
+
     .navbar .navbar_profile__name {
         display: flex;
         font-size: 24px;
     }
+
     .navbar_button-container {
         padding: 2px 0;
     }
+
     .navbar_button-container button {
         height: 46px;
         width: 150px;
@@ -193,22 +207,13 @@ input {
     color: #000000;
 }
 
-.form-author-menu .search-form {
-    margin-top: 10px;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    width: 100px;
-    gap: 5px;
-}
-
 .form-author-menu .side-bar_profile__name {
     border-radius: 8px;
     text-align: center;
     display: flex;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px;
+    padding: 12px;
     margin: 10px;
     color: #FFFFFF;
     background-color: #818FB4;
@@ -219,12 +224,6 @@ input {
 .form-author-menu .side-bar_profile__name:hover {
     opacity: 1;
     background-color: #7458b6;
-}
-
-.form-author-menu input[type=text] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
 }
 
 .form-author-menu .search-icon {
@@ -297,24 +296,29 @@ input {
         display: flex;
         padding: 0;
     }
+
     .form-author-menu button {
         border-radius: 0;
         justify-content: center;
         padding-left: 12px;
     }
+
     .form-author-menu .secondary-button {
         margin: 0;
         font-size: 14px;
     }
+
     .form-author-menu .primary-button {
         margin: 0 0 0 -1px;
         background-color: white;
         font-size: 14px;
     }
+
     .form-author-menu__close {
         transition: transform 0s;
         transform: none;
     }
+
     #author-menu-close-button {
         display: none;
     }
@@ -326,12 +330,15 @@ input {
         gap: 4px;
         flex-wrap: wrap;
     }
+
     .form-author-menu button span {
         width: 100%;
     }
+
     .form-author-menu .secondary-button {
         font-size: 12px;
     }
+
     .form-author-menu .primary-button {
         font-size: 12px;
     }
@@ -352,23 +359,16 @@ input {
     opacity: 0.5;
 }
 
-.popup {
-    position: fixed;
-    z-index: 120;
-    display: flex;
-    width: 100%;
-}
-
 .popup_window {
-    width: 320px;
-    height: 180px;
-    margin: 200px auto;
-    padding: 20px 24px;
+    width: 330px;
+    height: 300px;
+    margin-left: 20px;
+    border-radius: 8px;
+    padding: 15px;
     background-color: #ffffff;
-    border: 1px #424242;
-    border-radius: 9px;
-    font-size: 20px;
     text-align: center;
+    -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
+    box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
 }
 
 .popup_window p {
@@ -376,8 +376,13 @@ input {
     height: 90px;
 }
 
-.popup_window .button-container {
-    gap: 9px;
+.popup_title_container {
+    display: flex;
+}
+
+.popup_image {
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 .stop-scrolling {
@@ -385,53 +390,35 @@ input {
     overflow: hidden;
 }
 
-@media screen and (max-width: 768px) {
-    .popup_window {
-        width: 280px;
-        height: 150px;
-        font-size: 18px;
-    }
-    .popup_window p {
-        height: 67px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .popup_window {
-        width: 280px;
-        padding: 20px;
-        height: 140px;
-        font-size: 18px;
-    }
-    .popup_window p {
-        margin-top: 8px;
-        height: 63px;
-    }
-}
-
 @media screen and (min-width: 768px) {
+
     html,
     body,
     #map,
     #root {
         width: 100%;
         height: 100%;
-        margin: 0px;
-        padding: 0px;
+        margin: 0;
+        padding: 0;
     }
+
     .side-bar-menu__close {
         transform: translate(-250px, 0);
     }
+
     .side-bar-menu__close #side-bar-menu-close-span {
         right: 100px;
     }
+
     .side-bar-menu__open {
         transform: translate(0, 0);
     }
+
     .side-bar-menu__open #side-bar-menu-close-span {
         top: 6px;
         right: 80px;
     }
+
     #side-bar-menu-close-span {
         font-size: 36px;
         cursor: pointer;
@@ -442,27 +429,34 @@ input {
     .forms_list-container {
         margin: 32px 40px;
     }
+
     .forms_title-container {
         margin: 0 auto 15px;
     }
+
     .forms_title-container h3 {
         font-size: 26px;
     }
+
     .forms_title-container_button-container button {
         width: 40px;
         height: 36px;
         font-size: 24px;
     }
+
     .forms_search-container {
         margin-bottom: 30px;
     }
+
     .forms_search-container .forms_search-container__button {
         content-visibility: hidden;
         width: 45px;
     }
+
     .forms__loading-screen {
         top: 190px;
     }
+
     .forms__loading-screen img {
         width: 40px;
         height: 40px;
@@ -474,6 +468,7 @@ input {
     .forms_list-container {
         margin: 32px 15px;
     }
+
     .forms_search-container .forms_search-container__input {
         min-width: 210px;
     }
@@ -533,17 +528,20 @@ input {
     .index_content-container {
         flex-wrap: wrap;
     }
+
     .index_content-container_description__picture {
         max-width: none;
         width: 80%;
         margin: 0 100px;
     }
+
     .index_content-container_description {
         margin: 0 50px 25px 50px;
         max-width: none;
         text-align: center;
         align-items: center;
     }
+
     .index_content-container_description button {
         margin: 0 auto;
         width: 400px;
@@ -554,25 +552,31 @@ input {
     .index {
         margin-top: 60px;
     }
+
     .index h3 {
         font-size: 32px;
         margin: 0 40px 30px 40px;
     }
+
     .index_content-container_description {
         margin: 0 40px 20px 40px;
         font-size: 20px;
     }
+
     .index_content-container_description .button-container {
         margin: 40px 0 20px 0;
     }
+
     .index_content-container_description .button-container button {
         font-size: 16px;
         padding: 20px 12px;
         width: 300px;
     }
+
     .index_content-container_description a {
         font-size: 18px;
     }
+
     .index_content-container_description__picture {
         display: none;
     }
@@ -582,16 +586,20 @@ input {
     .index {
         margin-top: 40px;
     }
+
     .index h3 {
         margin: 30px 15px 20px 15px;
     }
+
     .index_content-container_description .button-container {
         margin: 32px 0 16px 0;
     }
+
     .index_content-container_description .button-container button {
         padding: 10px;
         width: 250px;
     }
+
     .index_content-container_description__picture {
         width: 100%;
     }
@@ -650,13 +658,16 @@ input {
     .auth-container {
         margin: 50px 0;
     }
+
     .login-form_container h3 {
         font-size: 22px;
         margin: 0;
     }
+
     .login-form_container button {
         font-size: 14px;
     }
+
     .login-form_container__input {
         font-size: 18px;
     }
@@ -668,14 +679,17 @@ input {
         margin: 0 10px;
         width: initial;
     }
+
     .login-form_container h3 {
         font-size: 30px;
         margin-bottom: 20px;
     }
+
     .login-form_container .login-form_container__input {
         width: 100%;
         font-size: 18px;
     }
+
     .login-form_container .button-container {
         margin: 40px 0;
         gap: 10px;
@@ -721,9 +735,11 @@ input {
         font-size: 22px;
         margin: 0;
     }
+
     .signup-form_container button {
         font-size: 14px;
     }
+
     .signup-form_container__input {
         font-size: 18px;
     }
@@ -734,10 +750,12 @@ input {
         font-size: 30px;
         margin-bottom: 20px;
     }
+
     .signup-form_container .signup-form_container__input {
         width: 100%;
         font-size: 18px;
     }
+
     .signup-form_container .button-container {
         margin: 40px 0;
     }
@@ -763,6 +781,7 @@ input {
 }
 
 @media screen {
+
     .success-container,
     .error-container {
         padding-top: 10px;
@@ -772,6 +791,7 @@ input {
 }
 
 @media screen and (min-width: 480px) {
+
     .success-container,
     .error-container {
         padding-top: 9px;
@@ -781,6 +801,7 @@ input {
 }
 
 @media screen and (min-width: 768px) {
+
     .success-container,
     .error-container {
         padding-top: 10px;
@@ -821,10 +842,12 @@ input {
         top: 65px;
         padding: 8px;
     }
+
     .navbar-profile-menu .primary-button {
         font-size: 14px;
         margin: 4px 0;
     }
+
     .navbar-profile-menu-separator {
         height: 12px;
     }
@@ -836,9 +859,11 @@ input {
         top: 80px;
         padding: 8px;
     }
+
     .navbar-profile-menu .primary-button {
         margin: 3px 0;
     }
+
     .navbar-profile-menu-separator {
         height: 12px;
     }
@@ -850,6 +875,7 @@ input {
         top: 85px;
         padding: 8px;
     }
+
     .navbar-profile-menu .primary-button {
         margin: 3px 0;
     }
@@ -861,9 +887,11 @@ input {
         top: 80px;
         padding: 8px;
     }
+
     .navbar-profile-menu .primary-button {
         margin: 3px 0;
     }
+
     .navbar-profile-menu-separator {
         height: 12px;
     }
@@ -875,11 +903,13 @@ input {
         top: 75px;
         padding: 8px;
     }
+
     .navbar-profile-menu .red-button {
         font-size: 16px;
         width: 100px;
         border: none;
     }
+
     .navbar-profile-menu-separator {
         height: 12px;
     }
@@ -889,6 +919,52 @@ input {
     .navbar-profile-menu-separator {
         height: 12px;
     }
+}
+
+.search-form {
+    margin: 20px;
+    -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+    box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+    border-radius: 8px;
+    display: flex;
+}
+
+.search-form__container {
+    z-index: 120;
+}
+
+.search-form_input {
+    background-color: #FFFFFF;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 300px;
+    color: black;
+}
+
+.search-from_icon {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.x {
+    font-size: 10px;
+}
+
+.z {
+    display: flex;
+}
+
+.y {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    margin-top: 12px;
+    margin-right: 12px;
 }
 
 * {
@@ -922,12 +998,15 @@ h3 {
     text-overflow: ellipsis;
 }
 
-#navbar,
-#popup {
+#navbar {
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 100;
+}
+
+#popup {
+    position: fixed;
 }
 
 #message-box {
@@ -946,6 +1025,5 @@ h3 {
     top: 80px;
     z-index: -1;
 }
-
 
 /*# sourceMappingURL=index.css.map */

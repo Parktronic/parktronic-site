@@ -20,22 +20,13 @@
     color: #000000;
 }
 
-.form-author-menu .search-form {
-    margin-top: 10px;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-    width: 100px;
-    gap: 5px;
-}
-
 .form-author-menu .side-bar_profile__name {
     border-radius: 8px;
     text-align: center;
     display: flex;
     font-size: 16px;
     font-weight: bold;
-    padding: 10px;
+    padding: 12px;
     margin: 10px;
     color: #FFFFFF;
     background-color: #818FB4;
@@ -46,12 +37,6 @@
 .form-author-menu .side-bar_profile__name:hover {
     opacity: 1;
     background-color: #7458b6;
-}
-
-.form-author-menu input[type=text] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
 }
 
 .form-author-menu .search-icon {
@@ -124,24 +109,29 @@
         display: flex;
         padding: 0;
     }
+
     .form-author-menu button {
         border-radius: 0;
         justify-content: center;
         padding-left: 12px;
     }
+
     .form-author-menu .secondary-button {
         margin: 0;
         font-size: 14px;
     }
+
     .form-author-menu .primary-button {
         margin: 0 0 0 -1px;
         background-color: white;
         font-size: 14px;
     }
+
     .form-author-menu__close {
         transition: transform 0s;
         transform: none;
     }
+
     #author-menu-close-button {
         display: none;
     }
@@ -153,12 +143,15 @@
         gap: 4px;
         flex-wrap: wrap;
     }
+
     .form-author-menu button span {
         width: 100%;
     }
+
     .form-author-menu .secondary-button {
         font-size: 12px;
     }
+
     .form-author-menu .primary-button {
         font-size: 12px;
     }
@@ -169,6 +162,5 @@
         font-size: 10px;
     }
 }
-
 
 /*# sourceMappingURL=sideBarMenu.css.map */

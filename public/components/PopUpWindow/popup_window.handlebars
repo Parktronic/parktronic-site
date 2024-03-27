@@ -1,12 +1,10 @@
-<div class="popup_fade"></div>
-<div class="popup">
+<div class="popup" id="popup_container">
     <div class="popup_window">
-        <h3 class="popup_window_message" id="popup-title">Требуется подтверждение</h3>
-        <p id="popup-message"></p>
-        <input class="display-none" id="popup-copy-input">
-        <div class="button-container">
-            <button class="secondary-button" type="submit" id="popup-ok-button">Продолжить</button>
-            <button class="primary-button" type="submit" id="popup-cancel-button">Отмена</button>
+        <div class="popup_title_container">
+            <h3 class="popup_title" id="popup-title">Здесь будут найденные парковки</h3>
+            <img class="popup_image" id="popup-cancel-button" src="../../resources/images/icons8-cross-24.svg"
+                alt="SVG Icon">
         </div>
+        <div class="parkings_container" id="parkings-container"></div>
     </div>
 </div>

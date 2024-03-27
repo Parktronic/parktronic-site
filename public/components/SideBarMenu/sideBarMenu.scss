@@ -6,47 +6,39 @@
     height: 100%;
     background-color: #FFFFFF;
     box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+
     .side-bar_up__container {
         display: flex;
     }
+
     .favourites_header {
         text-align: center;
         margin-top: 15px;
         font-size: 24px;
         color: #000000;
     }
-    .search-form {
-        margin-top: 10px;
-        margin-left: 10px;
-        display: flex;
-        align-items: center;
-        width: 100px;
-        gap: 5px;
-    }
+
     .side-bar_profile__name {
         border-radius: 8px;
         text-align: center;
         display: flex;
         font-size: 16px;
         font-weight: bold;
-        padding: 10px;
+        padding: 12px;
         margin: 10px;
         color: #FFFFFF;
         background-color: #818FB4;
         cursor: pointer;
         box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
     }
+
     .side-bar_profile__name {
         &:hover {
             opacity: 1;
             background-color: #7458b6;
         }
     }
-    input[type="text"] {
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-    }
+
     .search-icon {
         padding: 5px 4px;
         background-color: #4CAF50;
@@ -55,9 +47,11 @@
         border-radius: 8px;
         cursor: pointer;
     }
+
     .search-icon:hover {
         background-color: #45a049;
     }
+
     button {
         box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
         text-align: center;
@@ -68,24 +62,29 @@
         align-items: center;
         background-color: #818FB4;
     }
+
     .primary-button {
         background-color: #FFFFFF;
+
         &:hover {
             opacity: 1;
             background-color: #DDDDDD;
         }
     }
+
     .secondary-button {
         &:hover {
             opacity: 1;
             background-color: #7458b6;
         }
     }
+
     transition: transform 0.8s;
 }
 
 .form-author-menu__close {
     transform: translate(-400px, 0);
+
     #author-menu-close-button {
         top: 10px;
         right: -45px;
@@ -94,6 +93,7 @@
 
 .form-author-menu__open {
     transform: translate(0, 0);
+
     #author-menu-close-button {
         top: 10px;
         right: 8px;
@@ -113,25 +113,30 @@
         bottom: 0;
         display: flex;
         padding: 0;
+
         button {
             border-radius: 0;
             justify-content: center;
             padding-left: 12px;
         }
+
         .secondary-button {
             margin: 0;
             font-size: 14px;
         }
+
         .primary-button {
             margin: 0 0 0 -1px;
             background-color: white;
             font-size: 14px;
         }
     }
+
     .form-author-menu__close {
         transition: transform 0s;
         transform: none;
     }
+
     #author-menu-close-button {
         display: none;
     }
@@ -141,15 +146,19 @@
     .form-author-menu {
         button {
             padding: 10px 6px;
+
             span {
                 width: 100%;
             }
+
             gap: 4px;
             flex-wrap: wrap;
         }
+
         .secondary-button {
             font-size: 12px;
         }
+
         .primary-button {
             font-size: 12px;
         }

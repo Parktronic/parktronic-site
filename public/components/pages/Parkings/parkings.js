@@ -85,7 +85,7 @@ const init = async() => {
                               Количество свободных мест: ${lots.freeLotsCounter}/${lots.allLotsCounter}`;
 
             myMap.geoObjects.add(new ymaps.Placemark(
-                STORAGE.parkings[index].coords, {
+                STORAGE.parkings[index].coords[0][0], {
                     hintContent: hintContent,
                     balloonContent: balloonContent
                 }, {

@@ -6,3 +6,5 @@ import '../components/pages/Login/login.precompiled.js';
 import '../components/pages/Signup/signup.precompiled.js';
 import '../components/SideBarMenu/sideBarMenu.precompiled.js';
 import '../components/ParkingInfo/parking_info.precompiled.js'
+import '../components/ProfileMenu/profileMenu.precompiled.js'
+import '../components/Search/search.precompiled.js'

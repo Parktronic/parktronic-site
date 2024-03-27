@@ -3,7 +3,7 @@
         <h3 class="parking-info__address">{{parking.address}}</h3>
         <p class="parking-info__lots">Свободно: <strong>{{parking.free_lots}}</strong>/{{parking.all_lots}}</p>
         {{#if favourite}}
-            <button class="secondary-button" id="show-on-map_button">На карте</button>
+            <button class="secondary-button" id="show-on-map_button_{{parking.id}}">На карте</button>
         {{else}}
             <button class="secondary-button" id="add-parking_button">Добавить</button>
         {{/if}}
