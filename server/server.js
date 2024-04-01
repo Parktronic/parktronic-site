@@ -21,7 +21,22 @@ import cookie from 'cookie-parser';
 import morgan from 'morgan';
 import { uuid } from 'uuidv4';
 import path from 'path';
+import cors from 'cors';
 const app = express();
+
+const whitelist = ["http://localhost:8080"]
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error("Not allowed by CORS"))
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}
+app.use(cors(corsOptions))
 
 const __dirname = path.resolve();
 app.use('/', express.static(path.resolve(__dirname, './public')));
