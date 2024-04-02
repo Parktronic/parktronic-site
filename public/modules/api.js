@@ -56,7 +56,7 @@ export class API {
    */
   async userLogin(email, password) {
     try {
-      const url = ROUTES_API.login.url;
+      const url = backendUrl + ROUTES_API.login.url;
 
       const res = await fetch(url, {
         method: POST_METHOD,
@@ -68,6 +68,8 @@ export class API {
       });
 
       const body = await res.json();
+
+      console.log(body);
 
       let message = 'Ошибка сервера. Попробуйте позже.';
 
@@ -133,9 +135,9 @@ export class API {
    * @throws {Error} Если произошла ошибка при запросе или обработке данных.
    */
   // eslint-disable-next-line camelcase
-  async userSignup(first_name, username, email, password, avatar = '') {
+  async userSignup(first_name, username, email, password) {
     try {
-      const url = ROUTES_API.signup.url;
+      const url = backendUrl + ROUTES_API.signup.url;
 
       const res = await fetch(url, {
         method: POST_METHOD,
@@ -145,7 +147,7 @@ export class API {
         credentials: 'include',
         body: JSON.stringify({
           // eslint-disable-next-line camelcase
-          first_name, username, email, password, avatar,
+          first_name, username, email, password,
         }),
       });
 
@@ -215,7 +217,7 @@ export class API {
    */
   async addParking(parking) {
     try {
-      const url = ROUTES_API.post_parkings.url;
+      const url = backendUrl + ROUTES_API.post_parkings.url;
       const res = await fetch(url, {
         method: POST_METHOD,
         headers: {

@@ -21,22 +21,24 @@ import cookie from 'cookie-parser';
 import morgan from 'morgan';
 import { uuid } from 'uuidv4';
 import path from 'path';
-import cors from 'cors';
+// import cors from 'cors';
 const app = express();
 
-const whitelist = ["http://localhost:8080"]
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error("Not allowed by CORS"))
-    }
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}
-app.use(cors(corsOptions))
+// const whitelist = ["http://localhost:8080",
+//                    "https://cjr8b9lz-8000.euw.devtunnels.ms"]
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error("Not allowed by CORS"))
+//     }
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   credentials: true,
+// }
+// app.use(cors(corsOptions))
 
 const __dirname = path.resolve();
 app.use('/', express.static(path.resolve(__dirname, './public')));
@@ -47,43 +49,43 @@ app.use(cookie());
 
 
 const parkings = [{
-        id: 0,
-        coords: [55.747165, 37.672475],
-        address: 'Москва, Съезжинский_переулок, 3\n',
-        parking_rows: [{
-                coords: [
-                    [55.747214, 37.672645],
-                    [55.747197, 37.672313],
-                    [55.747170, 37.672650]
-                ],
-                number: 23,
-                free_spaces: [1, 2, 3],
-            },
-            {
-                coords: [
-                    [55.747109, 37.672321],
-                    [55.747140, 37.672625],
-                    [55.747059, 37.672320]
-                ],
-                number: 10,
-                free_spaces: [1, 2],
-            },
+    id: 0,
+    coords: [55.747165, 37.672475],
+    address: 'Москва, Съезжинский_переулок, 3\n',
+    parking_rows: [{
+        coords: [
+            [55.747214, 37.672645],
+            [55.747197, 37.672313],
+            [55.747170, 37.672650]
         ],
+        number: 23,
+        free_spaces: [1, 2, 3],
     },
     {
-        id: 1,
-        coords: [55.747350, 37.671365],
-        address: 'Андроньевская площадь\n',
-        parking_rows: [{
-            coords: [
-                [55.747410, 37.671365],
-                [55.747270, 37.671250],
-                [55.747390, 37.671425]
-            ],
-            number: 7,
-            free_spaces: [2, 3],
-        }, ],
-    }
+        coords: [
+            [55.747109, 37.672321],
+            [55.747140, 37.672625],
+            [55.747059, 37.672320]
+        ],
+        number: 10,
+        free_spaces: [1, 2],
+    },
+    ],
+},
+{
+    id: 1,
+    coords: [55.747350, 37.671365],
+    address: 'Андроньевская площадь\n',
+    parking_rows: [{
+        coords: [
+            [55.747410, 37.671365],
+            [55.747270, 37.671250],
+            [55.747390, 37.671425]
+        ],
+        number: 7,
+        free_spaces: [2, 3],
+    },],
+}
 ]
 
 const users = {
@@ -179,9 +181,9 @@ app.post('/add_parkings', (req, res) => {
 
     for (let index = 0; index < parkings.length; ++index) {
         if (users[emailSession].parkings[index] && users[emailSession].parkings[index].id === parking) {
-            return res.status(403).json({error: 'Парковка уже добавлена!'});
+            return res.status(403).json({ error: 'Парковка уже добавлена!' });
         }
-        
+
         if (parkings[index].id === parking) {
             users[emailSession].parkings.push(parkings[index]);
         }

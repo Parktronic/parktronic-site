@@ -91,26 +91,6 @@ export const renderLogin = async() => {
             }
             renderMessage('Потеряно соединение с сервером', true);
         }
-        try {
-                const api = new API();
-                const res = await api.addParking(0);
-
-                if (res.message !== 'ok') {
-                  renderMessage(res.message, true);
-                  return;
-                }
-
-                STORAGE.user = res.currentUser;
-
-                goToPage(ROUTES.parkings);
-                renderMessage('Вы успешно добавили парковку в избранное');
-            } catch (err) {
-            if (err.toString() !== 'TypeError: Failed to fetch') {
-                renderMessage('Ошибка сервера. Попробуйте позже', true);
-                return;
-            }
-            renderMessage('Потеряно соединение с сервером', true);
-        }
     });
 
     signupButton.addEventListener('click', () => {
