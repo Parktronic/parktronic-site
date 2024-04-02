@@ -1,20 +1,32 @@
 .error-container,
 .success-container {
+    height: 40px;
+    width: 640px;
+    margin: 10px auto;
     display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
+    align-items: center;
+    -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
+    box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
+    padding: 10px;
+}
+    
+.message_close-button {
+    cursor: pointer;
+    margin-left: auto;
 }
 
 .success-container {
     background-color: #e9ffe9;
     border: 1px solid #d4f1d4;
+    border-radius: 8px;
 }
 
 .error-container {
     background-color: #fde9e9;
     border: 1px solid #eaa7a7;
     color: #ea6767;
+    border-radius: 8px;
 }
 
 @media screen {

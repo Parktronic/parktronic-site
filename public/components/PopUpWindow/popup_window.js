@@ -6,9 +6,11 @@ import {resetBoxShadow} from "../Search/search.js";
  * @function
  * @return {void}
  */
-export const renderPopUpWindow = async () => {
+export const renderPopUpWindow = () => {
   const popupContainer = document.querySelector('#popup');
   popupContainer.innerHTML = Handlebars.templates.popup_window();
+
+  disableScroll();
 
   const searchForm = document.querySelector('#search-form');
   const cancelButton = document.querySelector('#popup-cancel-button');
@@ -28,6 +30,15 @@ export const renderPopUpWindow = async () => {
  * @return {void}
  */
 export const closePopUpWindow = () => {
+  enableScroll();
   const messageContainer = document.querySelector('#popup');
   messageContainer.innerHTML = '';
 };
+
+function disableScroll() {
+  document.body.classList.add("stop-scrolling");
+}
+
+function enableScroll() {
+  document.body.classList.remove("stop-scrolling");
+}

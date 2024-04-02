@@ -69,6 +69,9 @@ const init = async() => {
     myMap = new ymaps.Map('map', {
         center: [55.70578, 37.61786],
         zoom: 11,
+    }, {
+        suppressMapOpenBlock: false,
+        restrictMapArea: [[85.23618,-178.9], [-73.87011,181]],
     });
 
     myMap.controls.remove('searchControl'); // удаляем поиск

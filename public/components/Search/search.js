@@ -1,4 +1,6 @@
 import {renderPopUpWindow} from "../PopUpWindow/popup_window.js";
+import {STORAGE} from "../../modules/storage.js";
+import {countLots} from "../pages/Parkings/parkings.js";
 
 export const renderSearch = () => {
 	const searchContainer = document.querySelector('#search-form__container');
@@ -14,6 +16,10 @@ export const renderSearch = () => {
 		}
 	});
 };
+
+const search = () => {
+
+}
 
 function changeBoxShadow(element) {
 	element.style.boxShadow = "-1px 1px 15px 5px rgba(34, 60, 80, 0.4)";

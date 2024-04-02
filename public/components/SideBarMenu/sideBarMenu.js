@@ -44,12 +44,14 @@ export const renderSideBarMenu = () => {
 
     const showOnMapButton = document.querySelector(`#show-on-map_button_${index}`);
     showOnMapButton.addEventListener('click', () => {
-      console.log(STORAGE.user.parkings[index].address);
       zoom(myMap, STORAGE.user.parkings[index].coords);
     });
   }
 
   renderSearch();
+
+  document.getElementById("search-form-icon").addEventListener("click", () => {
+  });
 
   let flagClosed = false;
   const closeButton = document.querySelector('#author-menu-close-button');

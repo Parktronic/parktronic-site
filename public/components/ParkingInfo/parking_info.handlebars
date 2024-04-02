@@ -5,7 +5,10 @@
         {{#if favourite}}
             <button class="secondary-button" id="show-on-map_button_{{parking.id}}">На карте</button>
         {{else}}
-            <button class="secondary-button" id="add-parking_button">Добавить</button>
+            <div class="button-container">
+                <button class="secondary-button" id="show-on-map_button_{{parking.id}}">На карте</button>
+                <button class="outline-button" id="add-parking_button">Добавить</button>
+            </div>
         {{/if}}
     </div>
 {{/if}}

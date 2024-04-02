@@ -54,12 +54,11 @@ h3 {
 
 #message-box {
     position: fixed;
-    width: 100%;
-    z-index: 10;
-}
-
-#root {
-    position: relative;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    z-index: 150;
 }
 
 #footer {

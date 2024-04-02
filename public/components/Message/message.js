@@ -1,3 +1,5 @@
+import {renderPopUpWindow} from "../PopUpWindow/popup_window.js";
+
 /**
  * Функция для рендеринга сообщений для пользователя на странице.
  *
@@ -10,18 +12,21 @@ export const renderMessage = (text, error = false) => {
   const messageContainer = document.querySelector('#message-box');
   messageContainer.innerHTML = '';
   messageContainer.classList.remove('error-container', 'success-container');
-
   if (error) {
     messageContainer.classList.add('error-container');
   } else {
     messageContainer.classList.add('success-container');
   }
 
-  const message = document.createElement('p');
-  message.textContent = text;
-
-  messageContainer.appendChild(message);
+  messageContainer.innerHTML = Handlebars.templates.message({message: text});
   window.scroll(0, 0);
+
+  let closeButton = document.querySelector('#message_close-button');
+  closeButton.addEventListener('click', () => {
+    removeMessage();
+  });
+
+  setTimeout(removeMessage, 10000);
 };
 
 /**
