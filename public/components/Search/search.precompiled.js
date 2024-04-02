@@ -1,6 +1,6 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['search'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<div class=\"search-form\" id=\"search-form\">\n    <input type=\"text\" class=\"search-form_input\" id=\"search-input\" placeholder=\"Введите адрес парковки\">\n    <img class=\"search-form_icon\" id=\"search-form-icon\" src=\"../../resources/images/icons8-search.svg\" alt=\"SVG Icon\">\n</div>";
+    return "<div class=\"search-form\" id=\"search-form\">\n    <input type=\"text\" class=\"search-form_input\" id=\"search-input\" placeholder=\"Введите адрес парковки\">\n    <img class=\"search-form_icon\" id=\"search-form-icon\" src=\"../../resources/images/icons8-search.svg\">\n</div>\n<div class=\"search-popup\" id=\"search-popup\">\n    <div class=\"search-popup_container\" id=\"popup_container\">\n        <div class=\"search-popup_title_container\">\n            <h3 class=\"search-popup_title\" id=\"popup-title\">Здесь будут найденные парковки</h3>\n            <img class=\"search-popup_image\" id=\"popup-cancel-button\" src=\"../../resources/images/icons8-cross-24.svg\" alt=\"SVG Icon\">\n        </div>\n        <div class=\"search-parkings_container\" id=\"parkings-container\"></div>\n    </div>\n</div>\n";
 },"useData":true});
 })();

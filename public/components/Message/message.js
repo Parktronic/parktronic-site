@@ -1,5 +1,3 @@
-import {renderPopUpWindow} from "../PopUpWindow/popup_window.js";
-
 /**
  * Функция для рендеринга сообщений для пользователя на странице.
  *

@@ -50,9 +50,6 @@ export const renderSideBarMenu = () => {
 
   renderSearch();
 
-  document.getElementById("search-form-icon").addEventListener("click", () => {
-  });
-
   let flagClosed = false;
   const closeButton = document.querySelector('#author-menu-close-button');
   closeButton.addEventListener('click', () => {

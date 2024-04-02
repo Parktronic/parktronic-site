@@ -1,0 +1,13 @@
+{{#if parking}}
+<div class="search-info">
+    <h3 class="search-info__address">{{parking.address}}</h3>
+    <div class="search-info__container">
+        <p class="search-info__lots">Свободно: <strong>{{parking.free_lots}}</strong>/{{parking.all_lots}}</p>
+        <div class="search-button-container">
+            <img class="search-secondary-button" id="search_show-on-map_button_{{parking.id}}" alt="SVG Icon"
+                src="../../resources/images/icons8-map-24.png">
+            <button class="search-outline-button" id="search_add-parking_button_{{parking.id}}">Добавить</button>
+        </div>
+    </div>
+</div>
+{{/if}}

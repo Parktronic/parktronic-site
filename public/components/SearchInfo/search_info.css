@@ -1,0 +1,46 @@
+.search-info {
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+    box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+}
+
+.search-info .search-info__lots {
+    margin-right: auto;
+    margin-top: 9px;
+}
+
+.search-info .search-info__container {
+    margin-top: 10px;
+    gap: 32px;
+    display: flex;
+}
+
+.search-info .search-secondary-button {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    padding: 8px;
+    background-color: #f6f6f6;
+    color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+}
+
+.search-info .search-outline-button {
+    cursor: pointer;
+    height: 36px;
+    width: 90px;
+    background-color: #818FB4;
+    color: #FFFFFF;
+    box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+}
+
+.search-info .search-button-container {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+/*# sourceMappingURL=search_info.css.map */

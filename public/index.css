@@ -350,46 +350,6 @@ input {
   }
 }
 
-.popup_fade {
-  position: fixed;
-  z-index: 110;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: 0.5;
-}
-
-.popup_window {
-  width: 330px;
-  height: 300px;
-  margin-left: 20px;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: #ffffff;
-  text-align: center;
-  -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
-  box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
-}
-
-.popup_window p {
-  margin-top: 12px;
-  height: 90px;
-}
-
-.popup_title_container {
-  display: flex;
-}
-
-.popup_image {
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-.stop-scrolling {
-  height: 100%;
-  overflow: hidden;
-}
-
 @media screen and (min-width: 768px) {
 
   html,
@@ -963,20 +923,83 @@ input {
   margin-right: 12px;
 }
 
-.x {
-  font-size: 10px;
+.search-popup {
+  display: none;
+  width: 330px;
+  height: 340px;
+  position: absolute;
+  background-color: #FFFFFF;
+  z-index: 200;
+  margin-left: 20px;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
+  box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
 }
 
-.z {
+.search-popup_title_container {
   display: flex;
 }
 
-.y {
+.search-popup_image {
   cursor: pointer;
-  width: 24px;
-  height: 24px;
-  margin-top: 12px;
-  margin-right: 12px;
+  margin-bottom: 10px;
+  margin-left: auto;
+}
+
+.search-popup_title {
+  margin: 0 auto;
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+.search-info {
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+  -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+}
+
+.search-info .search-info__lots {
+  margin-right: auto;
+  margin-top: 9px;
+}
+
+.search-info .search-info__container {
+  margin-top: 10px;
+  gap: 32px;
+  display: flex;
+}
+
+.search-info .search-secondary-button {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  padding: 8px;
+  background-color: #f6f6f6;
+  color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+}
+
+.search-info .search-outline-button {
+  cursor: pointer;
+  height: 36px;
+  width: 90px;
+  background-color: #818FB4;
+  color: #FFFFFF;
+  box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+}
+
+.search-info .search-button-container {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
 }
 
 * {

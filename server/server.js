@@ -47,6 +47,7 @@ app.use(cookie());
 
 
 const parkings = [{
+        id: 0,
         coords: [55.747165, 37.672475],
         address: 'Москва, Съезжинский_переулок, 3\n',
         parking_rows: [{
@@ -70,6 +71,7 @@ const parkings = [{
         ],
     },
     {
+        id: 1,
         coords: [55.747350, 37.671365],
         address: 'Андроньевская площадь\n',
         parking_rows: [{
@@ -173,11 +175,17 @@ app.post('/add_parkings', (req, res) => {
         return res.status(402).json({ error: 'Такой парковки не существует!' });
     }
 
-    if (users[emailSession].parkings[parking]) {
-        return res.status(403).json({ error: 'Парковка уже добавлена!' });
-    }
+    console.log(users[emailSession].parkings);
 
-    users[emailSession].parkings.push(parkings[parking]);
+    for (let index = 0; index < parkings.length; ++index) {
+        if (users[emailSession].parkings[index] && users[emailSession].parkings[index].id === parking) {
+            return res.status(403).json({error: 'Парковка уже добавлена!'});
+        }
+        
+        if (parkings[index].id === parking) {
+            users[emailSession].parkings.push(parkings[index]);
+        }
+    }
 
     const currentUser = users[emailSession];
 

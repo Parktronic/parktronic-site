@@ -1,7 +1,6 @@
 @import './components/Buttons/buttons';
 @import './components/Navbar/navbar';
 @import 'components/SideBarMenu/sideBarMenu';
-@import './components/PopUpWindow/popup_window';
 @import './components/pages/Parkings/parkings';
 @import './components/pages/Main/main';
 @import './components/pages/Login/login';
@@ -10,6 +9,7 @@
 @import './components/ParkingInfo/parking_info';
 @import "./components/ProfileMenu/profileMenu";
 @import "./components/Search/search";
+@import "./components/SearchInfo/search_info";
 
 * {
     padding: 0;

@@ -28,18 +28,36 @@
     margin-right: 12px;
 }
 
-.x {
-    font-size: 10px;
+.search-popup {
+    display: none;
+    width: 330px;
+    height: 340px;
+    position: absolute;
+    background-color: #FFFFFF;
+    z-index: 200;
+    margin-left: 20px;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
+    box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.4);
 }
 
-.z {
+.search-popup_title_container {
     display: flex;
 }
 
-.y {
+.search-popup_image {
     cursor: pointer;
-    width: 24px;
-    height: 24px;
-    margin-top: 12px;
-    margin-right: 12px;
+    margin-bottom: 10px;
+    margin-left: auto;
+}
+
+.search-popup_title {
+    margin: 0 auto;
+}
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
 }
