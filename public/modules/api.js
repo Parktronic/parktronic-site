@@ -19,7 +19,7 @@ export class API {
    */
   async isAuth() {
     try {
-      const url = ROUTES_API.isAuth.url;
+      const url = backendUrl + ROUTES_API.isAuth.url;
 
       const res = await fetch(url, {
         method: GET_METHOD,
@@ -69,8 +69,6 @@ export class API {
 
       const body = await res.json();
 
-      console.log(body);
-
       let message = 'Ошибка сервера. Попробуйте позже.';
 
       if (res.status === 400) {
@@ -82,7 +80,8 @@ export class API {
       if (res.status === 200) {
         message = 'ok';
       }
-      return {message, authorizedUser: body.currentUser};
+
+      return {message, authorizedUser: body};
     } catch (e) {
       console.log('Ошибка метода userLogin:', e);
       throw (e);
@@ -99,14 +98,14 @@ export class API {
    */
   async userLogout() {
     try {
-      const url = ROUTES_API.logout.url;
+      const url = backendUrl + ROUTES_API.logout.url;
 
       const res = await fetch(url, {
         method: POST_METHOD,
         credentials: 'include',
       });
 
-      if (res.status === 404) {
+      if (res.status === 401) {
         return {message: 'Вы не авторизованы, обновите страницу'};
       }
       if (res.status === 408) {
@@ -129,7 +128,6 @@ export class API {
    * @param {string} username - Имя пользователя.
    * @param {string} email - Почта.
    * @param {string} password - Пароль.
-   * @param {string} avatar - Аватар пользователя в формате Base64.
    * @return {Promise<{registeredUser: ({password: *, name: *, email: *, username: *} | null),
    * message: string}>} Объект с информацией о статусе регистрации и о пользователе.
    * @throws {Error} Если произошла ошибка при запросе или обработке данных.
@@ -137,7 +135,7 @@ export class API {
   // eslint-disable-next-line camelcase
   async userSignup(first_name, username, email, password) {
     try {
-      const url = backendUrl + ROUTES_API.signup.url;
+      const url =  backendUrl + ROUTES_API.signup.url;
 
       const res = await fetch(url, {
         method: POST_METHOD,
@@ -146,14 +144,11 @@ export class API {
         },
         credentials: 'include',
         body: JSON.stringify({
-          // eslint-disable-next-line camelcase
-          first_name, username, email, password
+          first_name, username, email, password ,
         }),
       });
 
-      const body = await res.json();
-
-      const registeredUser = body.data;
+      const registeredUser = await res.json();
       let message = 'Ошибка сервера. Попробуйте позже.';
 
       if (res.status === 409) {
@@ -182,9 +177,9 @@ export class API {
    * @return {Promise<{parkings: *, message: string}>} Объект с массивом парковок.
    * @throws {Error} Если произошла ошибка при запросе или обработке данных.
    */
-  async getParkings() {
+  async parkingLots() {
     try {
-      let url = backendUrl + ROUTES_API.get_parkings.url;
+      let url =  backendUrl + ROUTES_API.parking_lots.url;
 
       const res = await fetch(url, {
         method: GET_METHOD,
@@ -194,8 +189,7 @@ export class API {
       const body = await res.json();
 
       if (res.ok) {
-        const parkings = body['parkings'];
-        console.log(parkings);
+        const parkings = body["parkings"];
         return {message: 'ok', parkings};
       }
 
@@ -217,7 +211,8 @@ export class API {
    */
   async addParking(parking) {
     try {
-      const url = backendUrl + ROUTES_API.post_parkings.url;
+      const url = ROUTES_API.post_favourite.url;
+      let dict = {"parking_lot_id": parking};
       const res = await fetch(url, {
         method: POST_METHOD,
         headers: {
@@ -225,10 +220,9 @@ export class API {
         },
         credentials: 'include',
         body: JSON.stringify({
-          parking,
+          parking
         }),
       });
-
 
       if (res.status === 401) {
         return {message: 'Вы не авторизованы'};
@@ -266,7 +260,6 @@ export class API {
   async getParkingView(id) {
     try {
       const url = backendUrl + ROUTES_API.view.url + `?id=${id}`;
-      console.log(url)
 
       const res = await fetch(url, {
         method: GET_METHOD,

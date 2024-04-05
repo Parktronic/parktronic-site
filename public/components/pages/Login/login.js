@@ -81,6 +81,7 @@ export const renderLogin = async() => {
                 return;
             }
             STORAGE.user = await res.authorizedUser;
+
             navbar();
             goToPage(ROUTES.parkings);
             renderMessage('Вы успешно вошли');

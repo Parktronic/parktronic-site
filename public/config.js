@@ -58,12 +58,12 @@ export const ROUTES_API = {
     url: '/logout',
     method: POST_METHOD,
   },
-  get_parkings: {
+  parking_lots: {
     url: '/parking_lots',
     method: GET_METHOD,
   },
-  post_parkings: {
-    url: '/add_parkings',
+  post_favourite: {
+    url: '/favourite',
     method: POST_METHOD,
   },
   view: {

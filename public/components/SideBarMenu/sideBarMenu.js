@@ -8,6 +8,15 @@ import {myMap, zoom} from "../pages/Parkings/parkings.js";
 import {countLots} from "../pages/Parkings/parkings.js";
 import {renderSearch} from "../Search/search.js";
 
+function findParkingById(parkings, id) {
+  for (let i = 0; i < parkings.length; i++) {
+    if (parkings[i].id === id) {
+      return parkings[i];
+    }
+  }
+  return null;
+}
+
 /**
  * Функция для рендеринга меню с инструментами автора опроса.
  * Если пользователь не авторизован, ничего не происходит.
@@ -28,31 +37,34 @@ export const renderSideBarMenu = () => {
   });
 
   let allParkingsDiv = document.querySelector('#user-park-container');
-  if (STORAGE.user.parkings.length === 0) {
-    const h4 = document.createElement('h4');
-    h4.style.textAlign = 'center';
-    h4.textContent = "Чтобы добавить парковку в избранное, введите её адрес в поисковой строке!"
-    allParkingsDiv.appendChild(h4);
-  } else {
-    for (let index =  0; index < STORAGE.user.parkings.length; ++index) {
-      let lotsInfo = countLots(STORAGE.user.parkings[index].parking_rows);
-      const oneParkingDiv = document.createElement('div');
-      oneParkingDiv.innerHTML = Handlebars.templates.parking_info({
-        parking:
-          {
-            id: index,
-            address: STORAGE.user.parkings[index].address,
-            free_lots: lotsInfo.freeLotsCounter,
-            all_lots: lotsInfo.allLotsCounter,
-          },
-        favourite: true
-      });
-      allParkingsDiv.appendChild(oneParkingDiv);
+  if (STORAGE.user.parkings) {
+    if (STORAGE.user.parkings.length === 0) {
+      const h4 = document.createElement('h4');
+      h4.style.textAlign = 'center';
+      h4.textContent = 'Чтобы добавить парковку в избранное, введите её адрес в поисковой строке!';
+      allParkingsDiv.appendChild(h4);
+    } else {
+      for (let index =  0; index < STORAGE.user.parkings.length; ++index) {
+        const userParking = findParkingById(STORAGE.parkings, STORAGE.user.parkings[index]);
+        let lotsInfo = countLots(userParking.parking_rows);
+        const oneParkingDiv = document.createElement('div');
+        oneParkingDiv.innerHTML = Handlebars.templates.parking_info({
+          parking:
+            {
+              id: STORAGE.user.parkings[index],
+              address: userParking.address,
+              free_lots: lotsInfo.freeLotsCounter,
+              all_lots: lotsInfo.allLotsCounter,
+            },
+          favourite: true
+        });
+        allParkingsDiv.appendChild(oneParkingDiv);
 
-      const showOnMapButton = document.querySelector(`#show-on-map_button_${index}`);
-      showOnMapButton.addEventListener('click', () => {
-        zoom(myMap, STORAGE.user.parkings[index].coords);
-      });
+        const showOnMapButton = document.querySelector(`#show-on-map_button_${index}`);
+        showOnMapButton.addEventListener('click', () => {
+          zoom(myMap, userParking.coords);
+        });
+      }
     }
   }
 

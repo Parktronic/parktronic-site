@@ -111,54 +111,54 @@ app.get('/is_authorized', (req, res) => {
     res.status(200).json({ id, currentUser });
 });
 
-app.post('/login', (req, res) => {
-    const password = req.body.password;
-    const email = req.body.email;
+// app.post('/login', (req, res) => {
+//     const password = req.body.password;
+//     const email = req.body.email;
 
-    if (!password || !email) {
-        return res.status(401).json({ error: 'Не указан E-Mail или пароль.' });
-    }
-    if (!users[email] || users[email].password !== password) {
-        return res.status(401).json({ error: 'Не указан E-Mail или пароль.' });
-    }
+//     if (!password || !email) {
+//         return res.status(401).json({ error: 'Не указан E-Mail или пароль.' });
+//     }
+//     if (!users[email] || users[email].password !== password) {
+//         return res.status(401).json({ error: 'Не указан E-Mail или пароль.' });
+//     }
 
-    const id = uuid();
-    ids[id] = email;
+//     const id = uuid();
+//     ids[id] = email;
 
-    const authorizedUser = users[email]
+//     const authorizedUser = users[email]
 
-    res.cookie('podvorot', id, { expires: new Date(Date.now() + 1000 * 60 * 10) });
-    res.status(200).json({ id, currentUser: authorizedUser });
-});
+//     res.cookie('podvorot', id, { expires: new Date(Date.now() + 1000 * 60 * 10) });
+//     res.status(200).json({ id, currentUser: authorizedUser });
+// });
 
 app.post('/logout', (req, res) => {
     const id = req.cookies['podvorot'];
     const emailSession = ids[id];
 
     if (!emailSession || !users[emailSession]) {
-        return res.status(404).json({ error: 'Пользователь не авторизован!' });
+        return res.status(401).json({ error: 'Пользователь не авторизован!' });
     }
 
     res.clearCookie('podvorot');
     res.status(200).json();
 });
 
-app.post('/signup', (req, res) => {
-    const name = req.body.name;
-    const username = req.body.username;
-    const email = req.body.email;
-    const password = req.body.password;
-    const repeat_password = req.body.repeat_password;
-    const parkings = []
+// app.post('/signup', (req, res) => {
+//     const name = req.body.name;
+//     const username = req.body.username;
+//     const email = req.body.email;
+//     const password = req.body.password;
+//     const repeat_password = req.body.repeat_password;
+//     const parkings = []
 
-    const id = uuid;
-    const user = { name, username, email, password, parkings };
-    ids[id] = email;
-    users[email] = user;
+//     const id = uuid;
+//     const user = { name, username, email, password, parkings };
+//     ids[id] = email;
+//     users[email] = user;
 
-    res.cookie('podvorot', id, { expires: new Date(Date.now() + 1000 * 60 * 10) });
-    res.status(201).json({ id });
-});
+//     res.cookie('podvorot', id, { expires: new Date(Date.now() + 1000 * 60 * 10) });
+//     res.status(201).json({ id });
+// });
 
 app.get('/get_parkings', (req, res) => {
     res.status(200).json({ parkings });

@@ -56,7 +56,7 @@ export let myMap;
 const init = async() => {
     try {
         const api = new API();
-        const isParkings = await api.getParkings();
+        const isParkings = await api.parkingLots();
         if (isParkings) {
             STORAGE.parkings = isParkings.parkings;
         }
@@ -79,7 +79,7 @@ const init = async() => {
     // myMap.controls.remove('typeSelector'); // удаляем тип
     myMap.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
 
-    if (STORAGE.parkings) {
+    if (STORAGE.parkings && STORAGE.parkings !== []) {
         for (let index = 0; index < STORAGE.parkings.length; ++index) {
             const lots = countLots(STORAGE.parkings[index].parking_rows);
 
