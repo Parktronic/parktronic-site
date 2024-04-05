@@ -147,7 +147,7 @@ export class API {
         credentials: 'include',
         body: JSON.stringify({
           // eslint-disable-next-line camelcase
-          first_name, username, email, password,
+          first_name, username, email, password
         }),
       });
 
