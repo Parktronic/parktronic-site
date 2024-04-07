@@ -2,6 +2,7 @@ import { API } from '../../../modules/api.js';
 import { removeMessage, renderMessage } from '../../Message/message.js';
 import { STORAGE } from '../../../modules/storage.js';
 import { renderSideBarMenu } from "../../SideBarMenu/sideBarMenu.js";
+import { stringify } from 'uuid';
 
 
 /**
@@ -37,6 +38,7 @@ const drawRect = (ymaps, p1, p2, p3, p4, color) => {
             [p2.y, p2.x],
             [p3.y, p3.x],
             [p4.y, p4.x],
+            [p1.y, p1.x]
         ]
     ], {}, {
         fillColor: color,
@@ -74,6 +76,35 @@ const init = async() => {
         restrictMapArea: [[85.23618,-178.9], [-73.87011,181]],
     });
 
+    // Переменная с описанием двух видов иконок кластеров.
+    var clusterIcons = [
+            {
+            href: '../../resources/images/cluster.png',
+            size: [40, 40],
+            // Отступ, чтобы центр картинки совпадал с центром кластера.
+            offset: [-20, -20],
+            // Можно задать геометрию активной области метки.
+            // Если геометрия не задана, активной областью будет
+            // прямоугольник.
+            shape: {
+                type: 'Circle',
+                coordinates: [0, 0],
+                // Радиус = 0, чтобы нельзя было нажать на кластер
+                radius: 0,
+            }
+            }];
+
+    // Добавление кластеров
+    var myClusterer = new ymaps.Clusterer(
+        {
+        clusterIcons: clusterIcons,
+        // Приближение к парковкам при нажатии
+        clusterDisableClickZoom: true,
+        // Открытие балуна запрещаем
+        openBalloonOnClick: false,
+        }
+    );
+
     myMap.controls.remove('searchControl'); // удаляем поиск
     myMap.controls.remove('trafficControl'); // удаляем контроль трафика
     // myMap.controls.remove('typeSelector'); // удаляем тип
@@ -89,15 +120,38 @@ const init = async() => {
             const balloonContent = `${STORAGE.parkings[index].address}<br>
                               Количество свободных мест: ${lots.freeLotsCounter}/${lots.allLotsCounter}`;
 
-            myMap.geoObjects.add(new ymaps.Placemark(
-                STORAGE.parkings[index].coords[0][0], {
-                    hintContent: hintContent,
-                    balloonContent: balloonContent
-                }, {
-                    preset: 'islands#icon',
-                    iconColor: '#02006B'
+            // Создаём макет содержимого для меток
+            const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                `<div class="map_placemark">` + 
+                `$[properties.iconContent]` + 
+                `</div>`
+            );
+
+            const myPlacemark = new ymaps.Placemark(
+                STORAGE.parkings[index].coords,
+                {
+                hintContent: hintContent,
+                balloonContent: balloonContent,
+                iconContent: `${lots.freeLotsCounter}/${lots.allLotsCounter}`
+                },
+                {
+                // Необходимо указать данный тип макета.
+                iconLayout: 'default#imageWithContent',
+                // Своё изображение иконки метки.
+                iconImageHref: '../../resources/images/geolocation.png',
+                // Размеры метки.
+                iconImageSize: [50, 50],
+                // Смещение левого верхнего угла иконки относительно
+                // её "ножки" (точки привязки).
+                iconImageOffset: [-25, -50],
+                // Смещение слоя с содержимым относительно слоя с картинкой.
+                iconContentOffset: [0, 10],
+                // Макет содержимого.
+                iconContentLayout: MyIconContentLayout
                 }
-            ))
+            );
+
+            myClusterer.add(myPlacemark);
 
             const parkingRows = STORAGE.parkings[index].parking_rows;
             for (let rowIndex = 0; rowIndex < parkingRows.length; ++rowIndex) {
@@ -241,6 +295,7 @@ const init = async() => {
             }
         }
     }
+    myMap.geoObjects.add(myClusterer);
 }
 
 /**
