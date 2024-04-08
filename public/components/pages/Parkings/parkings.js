@@ -2,7 +2,6 @@ import { API } from '../../../modules/api.js';
 import { removeMessage, renderMessage } from '../../Message/message.js';
 import { STORAGE } from '../../../modules/storage.js';
 import { renderSideBarMenu } from "../../SideBarMenu/sideBarMenu.js";
-import { stringify } from 'uuid';
 
 
 /**
