@@ -8,7 +8,16 @@ import {myMap, zoom} from "../pages/Parkings/parkings.js";
 import {countLots} from "../pages/Parkings/parkings.js";
 import {renderSearch} from "../Search/search.js";
 
-function findParkingById(parkings, id) {
+/**
+ * Функция поиска парковки по id в массиве парковок.
+ *
+ * @function
+ * @param parkings - Массив парковок.
+ * @param id - ID искомой парковки.
+ * @return {parking: Object | null} - Возвращает данные о найденной парковке,
+ * либо null.
+ */
+const findParkingById = (parkings, id) => {
   for (let i = 0; i < parkings.length; i++) {
     if (parkings[i].id === id) {
       return parkings[i];
@@ -24,7 +33,7 @@ function findParkingById(parkings, id) {
  * @function
  * @return {void}
  */
-export const renderSideBarMenu = () => {
+export const renderSideBarMenu = async () => {
   if (!STORAGE.user) {
     return;
   }
@@ -61,9 +70,11 @@ export const renderSideBarMenu = () => {
         allParkingsDiv.appendChild(oneParkingDiv);
 
         const showOnMapButton = document.querySelector(`#show-on-map_button_${index}`);
-        showOnMapButton.addEventListener('click', () => {
-          zoom(myMap, userParking.coords);
-        });
+        if (showOnMapButton) {
+          showOnMapButton.addEventListener('click', () => {
+            zoom(myMap, userParking.coords);
+          });
+        }
       }
     }
   }

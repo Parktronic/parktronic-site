@@ -11,8 +11,6 @@ import {removeMessage} from "../components/Message/message.js";
 /**
  * Расщепляет url запроса на нормальный url (с :id по умолчанию) и id страницы.
  * Так же убирает слеш в конце, если после него ничего не написано.
- * Например, '/forms/34/edit' -> { 'id': '34', 'normalUrl': '/forms/:id/edit' }
- *           '/forms/' -> { 'id': null, 'normalUrl': '/forms' }
  *
  * @function
  * @param url - Путь из запроса.
@@ -21,7 +19,6 @@ import {removeMessage} from "../components/Message/message.js";
  */
 export const parseUrl = (url) => {
   if (url[url.length - 1] === '/' && url.length > 1) {
-    // eslint-disable-next-line no-param-reassign
     url = url.slice(0, url.length - 1);
   }
   const index = url.indexOf('/', 1);

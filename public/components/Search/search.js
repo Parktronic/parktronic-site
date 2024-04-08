@@ -55,8 +55,7 @@ export const renderSearch = () => {
  * @function
  * @return {void}
  */
-
-const search = () => {
+const search = async () => {
 	const resultsDiv = document.querySelector("#parkings-container");
 	let searchValue = document.querySelector("#search-input").value;
 	resultsDiv.innerHTML = "";
@@ -96,14 +95,16 @@ const search = () => {
 	    addButton.addEventListener('click', async () => {
 		    try {
 			    const api = new API();
-			    const res = await api.addParking(parking.id);
+			    const res = await api.postFavorite(parking.id);
 
 			    if (res.message !== 'ok') {
 				    renderMessage(res.message, true);
 				    return;
 			    }
 
-			    STORAGE.user = res.currentUser;
+			    if (res.currentUser) {
+					STORAGE.user = res.currentUser;
+				}
 
 			    goToPage(ROUTES.parkings);
 			    renderMessage('Вы успешно добавили парковку в избранное');

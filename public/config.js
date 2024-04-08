@@ -34,12 +34,11 @@ export const ROUTES = {
 };
 
 const domain = 'localhost';
-// export const backendUrl = `http://${domain}:8000`;
 export const backendUrl = `https://cjr8b9lz-8000.euw.devtunnels.ms`;
-export const frontendUrl = `http://${domain}:8000`;
 
 const GET_METHOD = 'GET';
 const POST_METHOD = 'POST';
+const DELETE_METHOD = 'DELETE';
 
 export const ROUTES_API = {
   login: {
@@ -50,7 +49,7 @@ export const ROUTES_API = {
     url: '/signup',
     method: POST_METHOD,
   },
-  isAuth: {
+  is_auth: {
     url: '/is_authorized',
     method: GET_METHOD,
   },
@@ -62,12 +61,12 @@ export const ROUTES_API = {
     url: '/parking_lots',
     method: GET_METHOD,
   },
-  post_favourite: {
-    url: '/favourite',
+  post_favorite: {
+    url: '/favorite',
     method: POST_METHOD,
   },
-  view: {
-    url: '/view',
-    method: GET_METHOD,
+  delete_favorite: {
+    url: '/favorite',
+    method: DELETE_METHOD,
   },
 };

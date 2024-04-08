@@ -19,7 +19,7 @@ export class API {
    */
   async isAuth() {
     try {
-      const url = backendUrl + ROUTES_API.isAuth.url;
+      const url = backendUrl + ROUTES_API.is_auth.url;
 
       const res = await fetch(url, {
         method: GET_METHOD,
@@ -67,21 +67,21 @@ export class API {
         body: JSON.stringify({email, password}),
       });
 
-      const body = await res.json();
+      const authorizedUser = await res.json();
 
       let message = 'Ошибка сервера. Попробуйте позже.';
 
-      if (res.status === 400) {
-        message = 'Невозможно выполнить вход. Завершите предыдущую сессию!';
+      if (res.status === 409) {
+        message = 'Невозможно выполнить вход. Завершите предыдущую сессию.';
       }
       if (res.status === 401) {
-        message = 'Неправильный логин или пароль';
+        message = 'Неправильный логин или пароль.';
       }
-      if (res.status === 200) {
+      if (res.ok) {
         message = 'ok';
       }
 
-      return {message, authorizedUser: body};
+      return {message, authorizedUser};
     } catch (e) {
       console.log('Ошибка метода userLogin:', e);
       throw (e);
@@ -105,14 +105,19 @@ export class API {
         credentials: 'include',
       });
 
+      let message = 'Ошибка сервера. Попробуйте позже.';
+
       if (res.status === 401) {
-        return {message: 'Вы не авторизованы, обновите страницу'};
+        message = 'Вы не авторизованы, обновите страницу.';
       }
       if (res.status === 408) {
-        return {message: 'Потеряно соединение с сервером'};
+        message = 'Потеряно соединение с сервером.';
+      }
+      if (res.ok) {
+        message = 'ok';
       }
 
-      return {message: 'ok'};
+      return {message};
     } catch (e) {
       console.log('Ошибка метода userLogout:', e);
       throw (e);
@@ -144,18 +149,18 @@ export class API {
         },
         credentials: 'include',
         body: JSON.stringify({
-          first_name, username, email, password ,
+          first_name, username, email, password,
         }),
       });
 
       const registeredUser = await res.json();
       let message = 'Ошибка сервера. Попробуйте позже.';
 
-      if (res.status === 409) {
-        message = 'Пользователь уже существует';
+      if (res.status === 422) {
+        message = 'Пользователь уже существует.';
       }
-      if (res.status === 400) {
-        message = 'Невозможно зарегистрироваться. Завершите предыдущую сессию!';
+      if (res.status === 409) {
+        message = 'Невозможно зарегистрироваться. Завершите предыдущую сессию.';
       }
       if (res.ok) {
         message = 'ok';
@@ -170,7 +175,7 @@ export class API {
 
 
   /**
-   * Функция для получения ДАННЫХ парковок.
+   * Функция для получения данных парковок.
    *
    * @async
    * @function
@@ -188,14 +193,17 @@ export class API {
 
       const body = await res.json();
 
+      let message = 'Ошибка сервера. Попробуйте позже.';
+      let parkings = body["parkings"];
+
       if (res.ok) {
-        const parkings = body["parkings"];
-        return {message: 'ok', parkings};
+        message = 'ok'
+        parkings = body["parkings"];
       }
 
-      return {message: 'Ошибка сервера. Попробуйте позже', forms: null};
+      return {message, parkings};
     } catch (e) {
-      console.log('Ошибка метода getParkings:', e);
+      console.log('Ошибка метода parkingLots:', e);
       throw (e);
     }
   }
@@ -205,14 +213,13 @@ export class API {
    *
    * @async
    * @function
-   * @param {Object} parking - Данные о парковке.
+   * @param {Object} parking_lot_id - Данные о парковке.
    * @return {Promise<{parkings: *, message: string}>} Объект с массивом парковок.
    * @throws {Error} Если произошла ошибка при запросе или обработке данных.
    */
-  async addParking(parking) {
+  async postFavorite(parking_lot_id) {
     try {
-      const url = ROUTES_API.post_favourite.url;
-      let dict = {"parking_lot_id": parking};
+      const url = backendUrl + ROUTES_API.post_favorite.url;
       const res = await fetch(url, {
         method: POST_METHOD,
         headers: {
@@ -220,61 +227,91 @@ export class API {
         },
         credentials: 'include',
         body: JSON.stringify({
-          parking
+          parking_lot_id
         }),
       });
 
+      let message = 'Ошибка сервера. Попробуйте позже.';
+
       if (res.status === 401) {
-        return {message: 'Вы не авторизованы'};
+        message = 'Вы не авторизованы.';
       }
 
-      if (res.status === 402) {
-        return {message: 'Такой парковки не существует'};
+      if (res.status === 404) {
+        message = 'Такой парковки не существует.';
       }
 
-      if (res.status === 403) {
-        return {message: 'Парковка уже добавлена'};
+      if (res.status === 422) {
+        message ='Парковка уже добавлена.';
       }
 
       const body = await res.json();
 
+      let currentUser = null;
+
       if (res.ok) {
-        const currentUser = body.currentUser;
-        return {message: 'ok', currentUser};
+        message = 'ok';
+        currentUser = body;
       }
 
+      return {message, currentUser};
+
     } catch (e) {
-      console.log('Ошибка метода addParking:', e);
+      console.log('Ошибка метода postFavorite:', e);
       throw (e);
     }
   }
 
   /**
-   * Функция для добавления вида парковки.
+   * Функция для удаления парковки из избранного для пользователя.
    *
    * @async
    * @function
-   * @return {Promise<{parkings: *, message: string}>} Объект с видом парковки.
+   * @param {Object} parking_lot_id - Данные о парковке.
+   * @return {Promise<{parkings: *, message: string}>} Объект с массивом парковок.
    * @throws {Error} Если произошла ошибка при запросе или обработке данных.
    */
-  async getParkingView(id) {
+  async deleteFavorite(parking_lot_id) {
     try {
-      const url = backendUrl + ROUTES_API.view.url + `?id=${id}`;
-
+      const url = backendUrl + ROUTES_API.delete_favorite.url;
       const res = await fetch(url, {
-        method: GET_METHOD,
+        method: DELETE_METHOD,
+        headers: {
+          'Content-Type': 'application/json',
+        },
         credentials: 'include',
+        body: JSON.stringify({
+          parking_lot_id
+        }),
       });
+
+      let message = 'Ошибка сервера. Попробуйте позже.';
+
+      if (res.status === 401) {
+        message = 'Вы не авторизованы.';
+      }
+
+      if (res.status === 404) {
+        message = 'Такой парковки не существует.';
+      }
+
+      if (res.status === 422) {
+        message ='Такой парковки нет в избранном.';
+      }
 
       const body = await res.json();
 
+      let currentUser = null;
+
       if (res.ok) {
-        const views = body;
-        return {message: 'ok', views};
+        message = 'ok';
+        currentUser = body["currentUser"];
       }
 
+      return {message, currentUser};
+
     } catch (e) {
-      console.log('Ошибка метода addParking:', e);
+      console.log('Ошибка метода postFavorite:', e);
       throw (e);
     }
   }
