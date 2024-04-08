@@ -4,11 +4,29 @@
     border-radius: 8px;
     -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
     box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+
     .parking-info__lots {
         margin-top: 5px;
     }
+
     .secondary-button {
         margin-top: 10px;
         width: 100px;
+    }
+
+    .button-container {
+        gap: 14px;
+    }
+
+    .trash_icon {
+        cursor: pointer;
+        margin-top: 10px;
+        padding: 5px;
+        border-radius: 8px;
+
+        &:hover {
+            -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+            box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+        }
     }
 }

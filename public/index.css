@@ -11,23 +11,14 @@ input {
   border: 1px solid #424242;
 }
 
-.outline-button,
-.red-button,
-.black-button,
-.primary-button,
-.secondary-button {
+.outline-button, .red-button, .black-button, .primary-button, .secondary-button {
   padding: 10px 12px;
   border-radius: 9px;
   border: 1px solid #424242;
   width: 100%;
   font-weight: bold;
 }
-
-.outline-button:hover,
-.red-button:hover,
-.black-button:hover,
-.primary-button:hover,
-.secondary-button:hover {
+.outline-button:hover, .red-button:hover, .black-button:hover, .primary-button:hover, .secondary-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
@@ -73,22 +64,18 @@ input {
   background: #f1f1f1;
   color: #ffffff;
 }
-
 .navbar .navbar_logo {
   display: flex;
   align-items: center;
 }
-
 .navbar .navbar_logo span {
   font-size: 32px;
   margin: 0 6px 2px 0;
 }
-
 .navbar .navbar_logo a {
   font-weight: 700;
   cursor: pointer;
 }
-
 .navbar .navbar_profile {
   display: flex;
   justify-content: space-evenly;
@@ -103,88 +90,71 @@ input {
   .navbar {
     padding: 10px 22px;
   }
-
   .navbar .navbar_logo a {
     font-size: 22px;
   }
-
   .navbar .navbar_profile__picture {
     height: 42px;
     width: 42px;
   }
-
   .navbar_button-container button {
     height: 38px;
     font-size: 17px;
     width: 70px;
   }
-
   .navbar_button-container #navbar-signup-button {
     display: none;
   }
 }
-
 @media screen and (min-width: 480px) {
   .navbar .navbar_logo a {
     font-size: 22px;
   }
-
   .navbar .navbar_profile {
     margin-left: 40px;
   }
-
   .navbar .navbar_profile .navbar_profile__picture {
     height: 42px;
     width: 42px;
     margin: 0;
   }
-
   .navbar .navbar_profile .navbar_profile__name {
     display: flex;
     font-size: 20px;
   }
-
   .navbar_button-container {
     padding: 2px 0;
   }
-
   .navbar_button-container button {
     height: 38px;
     width: 100px;
     margin-left: 8px;
   }
-
   .navbar_button-container #navbar-signup-button {
     display: block;
   }
 }
-
 @media screen and (min-width: 768px) {
   .navbar .navbar_logo a {
     font-size: 29px;
   }
-
   .navbar .navbar_logo a span {
     font-size: 36px;
     margin: 0;
   }
-
   .navbar .navbar_profile__name {
     display: flex;
     font-size: 24px;
   }
-
   .navbar_button-container {
     padding: 2px 0;
   }
-
   .navbar_button-container button {
     height: 46px;
     width: 150px;
     margin-left: 10px;
   }
 }
-
 .form-author-menu {
   position: fixed;
   z-index: 20;
@@ -195,11 +165,9 @@ input {
   box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
   transition: transform 0.8s;
 }
-
 .form-author-menu .side-bar_up__container {
   display: flex;
 }
-
 .form-author-menu .favourites_header {
   text-align: center;
   margin-top: 15px;
@@ -207,7 +175,6 @@ input {
   font-size: 24px;
   color: #000000;
 }
-
 .form-author-menu .side-bar_profile__name {
   border-radius: 8px;
   text-align: center;
@@ -221,12 +188,10 @@ input {
   cursor: pointer;
   box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
 }
-
 .form-author-menu .side-bar_profile__name:hover {
   opacity: 1;
   background-color: #7458b6;
 }
-
 .form-author-menu .search-icon {
   padding: 5px 4px;
   background-color: #4CAF50;
@@ -235,11 +200,9 @@ input {
   border-radius: 8px;
   cursor: pointer;
 }
-
 .form-author-menu .search-icon:hover {
   background-color: #45a049;
 }
-
 .form-author-menu button {
   box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
   text-align: center;
@@ -250,16 +213,13 @@ input {
   align-items: center;
   background-color: #818FB4;
 }
-
 .form-author-menu .primary-button {
   background-color: #FFFFFF;
 }
-
 .form-author-menu .primary-button:hover {
   opacity: 1;
   background-color: #DDDDDD;
 }
-
 .form-author-menu .secondary-button:hover {
   opacity: 1;
   background-color: #7458b6;
@@ -268,7 +228,6 @@ input {
 .form-author-menu__close {
   transform: translate(-400px, 0);
 }
-
 .form-author-menu__close #author-menu-close-button {
   top: 10px;
   right: -45px;
@@ -277,7 +236,6 @@ input {
 .form-author-menu__open {
   transform: translate(0, 0);
 }
-
 .form-author-menu__open #author-menu-close-button {
   top: 10px;
   right: 8px;
@@ -297,60 +255,49 @@ input {
     display: flex;
     padding: 0;
   }
-
   .form-author-menu button {
     border-radius: 0;
     justify-content: center;
     padding-left: 12px;
   }
-
   .form-author-menu .secondary-button {
     margin: 0;
     font-size: 14px;
   }
-
   .form-author-menu .primary-button {
     margin: 0 0 0 -1px;
     background-color: white;
     font-size: 14px;
   }
-
   .form-author-menu__close {
     transition: transform 0s;
     transform: none;
   }
-
   #author-menu-close-button {
     display: none;
   }
 }
-
 @media screen and (max-width: 570px) {
   .form-author-menu button {
     padding: 10px 6px;
     gap: 4px;
     flex-wrap: wrap;
   }
-
   .form-author-menu button span {
     width: 100%;
   }
-
   .form-author-menu .secondary-button {
     font-size: 12px;
   }
-
   .form-author-menu .primary-button {
     font-size: 12px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .form-author-menu button {
     font-size: 10px;
   }
 }
-
 .map_placemark {
   position: absolute;
   text-align: center;
@@ -361,7 +308,6 @@ input {
 }
 
 @media screen and (min-width: 768px) {
-
   html,
   body,
   #map,
@@ -371,83 +317,66 @@ input {
     margin: 0;
     padding: 0;
   }
-
   .side-bar-menu__close {
     transform: translate(-250px, 0);
   }
-
   .side-bar-menu__close #side-bar-menu-close-span {
     right: 100px;
   }
-
   .side-bar-menu__open {
     transform: translate(0, 0);
   }
-
   .side-bar-menu__open #side-bar-menu-close-span {
     top: 6px;
     right: 80px;
   }
-
   #side-bar-menu-close-span {
     font-size: 36px;
     cursor: pointer;
   }
 }
-
 @media screen and (max-width: 768px) {
   .forms_list-container {
     margin: 32px 40px;
   }
-
   .forms_title-container {
     margin: 0 auto 15px;
   }
-
   .forms_title-container h3 {
     font-size: 26px;
   }
-
   .forms_title-container_button-container button {
     width: 40px;
     height: 36px;
     font-size: 24px;
   }
-
   .forms_search-container {
     margin-bottom: 30px;
   }
-
   .forms_search-container .forms_search-container__button {
     content-visibility: hidden;
     width: 45px;
   }
-
   .forms__loading-screen {
     top: 190px;
   }
-
   .forms__loading-screen img {
     width: 40px;
     height: 40px;
     margin: 140px auto;
   }
 }
-
 @media screen and (max-width: 480px) {
   .forms_list-container {
     margin: 32px 15px;
   }
-
   .forms_search-container .forms_search-container__input {
     min-width: 210px;
   }
 }
-
 .index {
   margin: 45px auto;
 }
-
 .index h3 {
   text-align: center;
   font-size: 36px;
@@ -459,7 +388,6 @@ input {
   justify-content: center;
   gap: 20px;
 }
-
 .index_content-container .index_content-container_description__picture {
   max-width: 600px;
   max-height: 350px;
@@ -472,22 +400,18 @@ input {
   text-align: left;
   max-width: 440px;
 }
-
 .index_content-container_description .button-container {
   margin: 48px 0 25px 0;
 }
-
 .index_content-container_description .button-container button {
   font-size: 18px;
   width: 300px;
   padding: 15px 12px;
 }
-
 .index_content-container_description a {
   font-size: 20px;
   color: #424242;
 }
-
 .index_content-container_description a span {
   height: 24px;
   color: #6e51a4;
@@ -498,83 +422,67 @@ input {
   .index_content-container {
     flex-wrap: wrap;
   }
-
   .index_content-container_description__picture {
     max-width: none;
     width: 80%;
     margin: 0 100px;
   }
-
   .index_content-container_description {
     margin: 0 50px 25px 50px;
     max-width: none;
     text-align: center;
     align-items: center;
   }
-
   .index_content-container_description button {
     margin: 0 auto;
     width: 400px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .index {
     margin-top: 60px;
   }
-
   .index h3 {
     font-size: 32px;
     margin: 0 40px 30px 40px;
   }
-
   .index_content-container_description {
     margin: 0 40px 20px 40px;
     font-size: 20px;
   }
-
   .index_content-container_description .button-container {
     margin: 40px 0 20px 0;
   }
-
   .index_content-container_description .button-container button {
     font-size: 16px;
     padding: 20px 12px;
     width: 300px;
   }
-
   .index_content-container_description a {
     font-size: 18px;
   }
-
   .index_content-container_description__picture {
     display: none;
   }
 }
-
 @media screen and (max-width: 480px) {
   .index {
     margin-top: 40px;
   }
-
   .index h3 {
     margin: 30px 15px 20px 15px;
   }
-
   .index_content-container_description .button-container {
     margin: 32px 0 16px 0;
   }
-
   .index_content-container_description .button-container button {
     padding: 10px;
     width: 250px;
   }
-
   .index_content-container_description__picture {
     width: 100%;
   }
 }
-
 .auth-container {
   margin: 70px 0;
 }
@@ -586,7 +494,6 @@ input {
   width: 320px;
   margin: 0 auto;
 }
-
 .auth-container__form h3 {
   font-size: 24px;
   margin-bottom: 4px;
@@ -597,7 +504,6 @@ input {
   flex-direction: column;
   margin: 20px 24px;
 }
-
 .login-form .button-container {
   margin-top: 20px;
 }
@@ -628,51 +534,42 @@ input {
   .auth-container {
     margin: 50px 0;
   }
-
   .login-form_container h3 {
     font-size: 22px;
     margin: 0;
   }
-
   .login-form_container button {
     font-size: 14px;
   }
-
   .login-form_container__input {
     font-size: 18px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .auth-container__form {
     border: none;
     margin: 0 10px;
     width: initial;
   }
-
   .login-form_container h3 {
     font-size: 30px;
     margin-bottom: 20px;
   }
-
   .login-form_container .login-form_container__input {
     width: 100%;
     font-size: 18px;
   }
-
   .login-form_container .button-container {
     margin: 40px 0;
     gap: 10px;
     flex-flow: column;
   }
 }
-
 .signup-form {
   display: flex;
   flex-direction: column;
   margin: 20px 24px 0 24px;
 }
-
 .signup-form .button-container {
   margin: 20px 24px;
   font-size: 15px;
@@ -705,34 +602,27 @@ input {
     font-size: 22px;
     margin: 0;
   }
-
   .signup-form_container button {
     font-size: 14px;
   }
-
   .signup-form_container__input {
     font-size: 18px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .signup-form_container h3 {
     font-size: 30px;
     margin-bottom: 20px;
   }
-
   .signup-form_container .signup-form_container__input {
     width: 100%;
     font-size: 18px;
   }
-
   .signup-form_container .button-container {
     margin: 40px 0;
   }
 }
-
-.error-container,
-.success-container {
+.error-container, .success-container {
   height: 40px;
   width: 640px;
   margin: 10px auto;
@@ -763,35 +653,26 @@ input {
 }
 
 @media screen {
-
-  .success-container,
-  .error-container {
+  .success-container, .error-container {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 16px;
   }
 }
-
 @media screen and (min-width: 480px) {
-
-  .success-container,
-  .error-container {
+  .success-container, .error-container {
     padding-top: 9px;
     padding-bottom: 9px;
     font-size: 20px;
   }
 }
-
 @media screen and (min-width: 768px) {
-
-  .success-container,
-  .error-container {
+  .success-container, .error-container {
     padding-top: 10px;
     padding-bottom: 10px;
     font-size: 18px;
   }
 }
-
 .parking-info {
   margin: 20px;
   padding: 15px;
@@ -799,14 +680,25 @@ input {
   -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
   box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
 }
-
 .parking-info .parking-info__lots {
   margin-top: 5px;
 }
-
 .parking-info .secondary-button {
   margin-top: 10px;
   width: 100px;
+}
+.parking-info .button-container {
+  gap: 14px;
+}
+.parking-info .trash_icon {
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 8px;
+}
+.parking-info .trash_icon:hover {
+  -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
+  box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
 }
 
 .navbar-profile-menu {
@@ -824,85 +716,70 @@ input {
     top: 65px;
     padding: 8px;
   }
-
   .navbar-profile-menu .primary-button {
     font-size: 14px;
     margin: 4px 0;
   }
-
   .navbar-profile-menu-separator {
     height: 12px;
   }
 }
-
 @media screen and (min-width: 480px) {
   .navbar-profile-menu {
     left: 8px;
     top: 80px;
     padding: 8px;
   }
-
   .navbar-profile-menu .primary-button {
     margin: 3px 0;
   }
-
   .navbar-profile-menu-separator {
     height: 12px;
   }
 }
-
 @media screen and (min-width: 768px) {
   .navbar-profile-menu {
     left: 16px;
     top: 85px;
     padding: 8px;
   }
-
   .navbar-profile-menu .primary-button {
     margin: 3px 0;
   }
 }
-
 @media screen and (min-width: 768px) and (min-width: 480px) {
   .navbar-profile-menu {
     left: 8px;
     top: 80px;
     padding: 8px;
   }
-
   .navbar-profile-menu .primary-button {
     margin: 3px 0;
   }
-
   .navbar-profile-menu-separator {
     height: 12px;
   }
 }
-
 @media screen and (min-width: 768px) and (min-width: 768px) {
   .navbar-profile-menu {
     left: 10px;
     top: 75px;
     padding: 8px;
   }
-
   .navbar-profile-menu .red-button {
     font-size: 16px;
     width: 100px;
     border: none;
   }
-
   .navbar-profile-menu-separator {
     height: 12px;
   }
 }
-
 @media screen and (min-width: 768px) {
   .navbar-profile-menu-separator {
     height: 12px;
   }
 }
-
 .search-form {
   margin: 20px;
   -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
@@ -974,18 +851,15 @@ input {
   -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
   box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
 }
-
 .search-info .search-info__lots {
   margin-right: auto;
   margin-top: 9px;
 }
-
 .search-info .search-info__container {
   margin-top: 10px;
   gap: 32px;
   display: flex;
 }
-
 .search-info .search-secondary-button {
   cursor: pointer;
   height: 20px;
@@ -996,7 +870,6 @@ input {
   border-radius: 8px;
   box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
 }
-
 .search-info .search-outline-button {
   cursor: pointer;
   height: 36px;
@@ -1005,7 +878,6 @@ input {
   color: #FFFFFF;
   box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
 }
-
 .search-info .search-button-container {
   margin-left: auto;
   display: flex;

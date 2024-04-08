@@ -1,12 +1,12 @@
-import  {frontendUrl, ROUTES} from '../../config.js';
-import {goToPage} from '../../modules/router.js';
 import {STORAGE} from '../../modules/storage.js';
-import {API} from "../../modules/api.js";
-import {renderMessage} from "../Message/message.js";
 import {renderProfileMenu} from "../ProfileMenu/profileMenu.js";
 import {myMap, zoom} from "../pages/Parkings/parkings.js";
 import {countLots} from "../pages/Parkings/parkings.js";
 import {renderSearch} from "../Search/search.js";
+import {API} from "../../modules/api.js";
+import {renderMessage} from "../Message/message.js";
+import {goToPage} from "../../modules/router.js";
+import {ROUTES} from "../../config.js";
 
 /**
  * Функция поиска парковки по id в массиве парковок.
@@ -60,7 +60,7 @@ export const renderSideBarMenu = async () => {
         oneParkingDiv.innerHTML = Handlebars.templates.parking_info({
           parking:
             {
-              id: STORAGE.user.parkings[index],
+              id: userParking.id,
               address: userParking.address,
               free_lots: lotsInfo.freeLotsCounter,
               all_lots: lotsInfo.allLotsCounter,
@@ -69,12 +69,36 @@ export const renderSideBarMenu = async () => {
         });
         allParkingsDiv.appendChild(oneParkingDiv);
 
-        const showOnMapButton = document.querySelector(`#show-on-map_button_${index}`);
-        if (showOnMapButton) {
-          showOnMapButton.addEventListener('click', () => {
-            zoom(myMap, userParking.coords);
-          });
-        }
+        const showOnMapButton = document.querySelector(`#show-on-map_button_${userParking.id}`);
+        showOnMapButton.addEventListener('click', () => {
+          zoom(myMap, userParking.coords);
+        });
+
+        const deleteButton = document.querySelector(`#delete-button_${userParking.id}`);
+        deleteButton.addEventListener('click', async () => {
+          try {
+            const api = new API();
+            const res = await api.deleteFavorite(userParking.id);
+
+            if (res.message !== 'ok') {
+              renderMessage(res.message, true);
+              return;
+            }
+
+            if (res.currentUser) {
+              STORAGE.user = res.currentUser;
+            }
+
+            goToPage(ROUTES.parkings);
+            renderMessage('Вы успешно удалили парковку из избранного');
+          } catch (err) {
+            if (err.toString() !== 'TypeError: Failed to fetch') {
+              renderMessage('Ошибка сервера. Попробуйте позже', true);
+              return;
+            }
+            renderMessage('Потеряно соединение с сервером', true);
+          }
+        });
       }
     }
   }

@@ -305,7 +305,7 @@ export class API {
 
       if (res.ok) {
         message = 'ok';
-        currentUser = body["currentUser"];
+        currentUser = body;
       }
 
       return {message, currentUser};
