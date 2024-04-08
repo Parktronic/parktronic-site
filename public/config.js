@@ -34,7 +34,7 @@ export const ROUTES = {
 };
 
 const domain = 'localhost';
-export const backendUrl = `https://cjr8b9lz-8000.euw.devtunnels.ms`;
+export const backendUrl = `https://xvwk1lvq-8000.euw.devtunnels.ms`;
 
 const GET_METHOD = 'GET';
 const POST_METHOD = 'POST';
