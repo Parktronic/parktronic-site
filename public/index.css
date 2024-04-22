@@ -322,73 +322,36 @@ input {
   border-radius: 5px;
 }
 
-@media screen and (min-width: 768px) {
-  html,
-  body,
-  #map,
-  #root {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  .side-bar-menu__close {
-    transform: translate(-250px, 0);
-  }
-  .side-bar-menu__close #side-bar-menu-close-span {
-    right: 100px;
-  }
-  .side-bar-menu__open {
-    transform: translate(0, 0);
-  }
-  .side-bar-menu__open #side-bar-menu-close-span {
-    top: 6px;
-    right: 80px;
-  }
-  #side-bar-menu-close-span {
-    font-size: 36px;
-    cursor: pointer;
-  }
+html,
+body,
+#map,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-@media screen and (max-width: 768px) {
-  .forms_list-container {
-    margin: 32px 40px;
-  }
-  .forms_title-container {
-    margin: 0 auto 15px;
-  }
-  .forms_title-container h3 {
-    font-size: 26px;
-  }
-  .forms_title-container_button-container button {
-    width: 40px;
-    height: 36px;
-    font-size: 24px;
-  }
-  .forms_search-container {
-    margin-bottom: 30px;
-  }
-  .forms_search-container .forms_search-container__button {
-    content-visibility: hidden;
-    width: 45px;
-  }
-  .forms__loading-screen {
-    top: 190px;
-  }
-  .forms__loading-screen img {
-    width: 40px;
-    height: 40px;
-    margin: 140px auto;
-  }
+
+.side-bar-menu__close {
+  transform: translate(-250px, 0);
 }
-@media screen and (max-width: 480px) {
-  .forms_list-container {
-    margin: 32px 15px;
-  }
-  .forms_search-container .forms_search-container__input {
-    min-width: 210px;
-  }
+.side-bar-menu__close #side-bar-menu-close-span {
+  right: 100px;
 }
+
+.side-bar-menu__open {
+  transform: translate(0, 0);
+}
+.side-bar-menu__open #side-bar-menu-close-span {
+  top: 6px;
+  right: 80px;
+}
+
+#side-bar-menu-close-span {
+  font-size: 36px;
+  cursor: pointer;
+}
+
 .index {
   margin: 45px auto;
 }
@@ -638,9 +601,6 @@ input {
   }
 }
 .error-container, .success-container {
-  height: 40px;
-  width: 640px;
-  margin: 10px auto;
   display: flex;
   text-align: center;
   align-items: center;
@@ -669,23 +629,26 @@ input {
 
 @media screen {
   .success-container, .error-container {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 16px;
+    height: 30px;
+    width: 320px;
+    margin: 10px auto;
+    font-size: 14px;
   }
 }
 @media screen and (min-width: 480px) {
   .success-container, .error-container {
-    padding-top: 9px;
-    padding-bottom: 9px;
-    font-size: 20px;
+    height: 30px;
+    width: 480px;
+    margin: 10px auto;
+    font-size: 18px;
   }
 }
 @media screen and (min-width: 768px) {
   .success-container, .error-container {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 18px;
+    height: 40px;
+    width: 640px;
+    margin: 10px auto;
+    font-size: 20px;
   }
 }
 .parking-info {

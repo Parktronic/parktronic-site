@@ -1,7 +1,4 @@
 %message-common {
-    height: 40px;
-    width: 640px;
-    margin: 10px auto;
     display: flex;
     text-align: center;
     align-items: center;
@@ -32,24 +29,27 @@
 
 @media screen {
     %message-common {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-size: 16px;
+        height: 30px;
+        width: 320px;
+        margin: 10px auto;
+        font-size: 14px;
     }
 }
 
 @media screen and (min-width: 480px) {
     %message-common {
-        padding-top: 9px;
-        padding-bottom: 9px;
-        font-size: 20px;
+        height: 30px;
+        width: 480px;
+        margin: 10px auto;
+        font-size: 18px;
     }
 }
 
 @media screen and (min-width: 768px) {
     %message-common {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-size: 18px;
+        height: 40px;
+        width: 640px;
+        margin: 10px auto;
+        font-size: 20px;
     }
 }
