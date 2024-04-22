@@ -22,6 +22,24 @@ export const countLots = (parking_rows) => {
     return { freeLotsCounter, allLotsCounter };
 };
 
+/**
+ * Функция для определения цвета прогресс-бара на основе его заполненности.
+ *
+ * @function
+ * @param progress - Значение прогресс-бара
+ * @return {color} - Возвращает цвет
+ * и общее количество мест на парковке.
+ */
+function getProgressBarColor(progress) {
+    if (progress <= 30) {
+        return '#FE4533'; // Красный цвет
+    } else if (progress <= 70) {
+        return '#F9A400'; // Желтый цвет
+    } else {
+        return '#4CAF50'; // Зеленый цвет
+    }
+}
+
 // Структура Point для работы с геометрией
 class Point {
     constructor(y, x) {
@@ -106,11 +124,15 @@ const init = async() => {
 
     // Макет содержимого для прогресс-бара
     var ProgressBarLayout = ymaps.templateLayoutFactory.createClass(
+        // Количество свободных мест числом
         `<div class="map_placemark">` + 
             `$[properties.freePlaces]` + 
         `</div>` +
+        // Прогресс бар
         '<div class="progressbar">' +
-        '<div class="progressbar-fill" style="width: {{ properties.progress }}%;"></div>' +
+        '<div class="progressbar-fill" style="width: {{ properties.progress }}%;' +
+        // Цвет прогресс бара
+        'background-color: {{ properties.progressBarColor }};"></div>' +
         '</div>', {
             build: function () {
                 ProgressBarLayout.superclass.build.call(this);
@@ -140,7 +162,8 @@ const init = async() => {
                     hintContent: hintContent,
                     balloonContent: balloonContent,
                     freePlaces: `${lots.freeLotsCounter}`,
-                    progress: (lots.freeLotsCounter / lots.allLotsCounter) * 100
+                    progress: (lots.freeLotsCounter / lots.allLotsCounter) * 100,
+                    progressBarColor: getProgressBarColor((lots.freeLotsCounter / lots.allLotsCounter) * 100)
                 },
                 {
                     // Необходимо указать данный тип макета.
