@@ -73,18 +73,6 @@ export const zoom = (map, markCoords) => {
 export let myMap;
 
 const init = async() => {
-    try {
-        const api = new API();
-        const isParkings = await api.parkingLots();
-        if (isParkings) {
-            STORAGE.parkings = isParkings.parkings;
-        }
-    } catch (e) {
-        if (e.toString() === 'TypeError: Failed to fetch') {
-            renderMessage('Потеряно соединение с сервером', true);
-        }
-    }
-
     myMap = new ymaps.Map('map', {
         center: [55.70578, 37.61786],
         zoom: 11,
@@ -342,6 +330,18 @@ export const renderParkings = async() => {
 
     const rootElement = document.querySelector('#root');
     rootElement.innerHTML = '';
+
+    try {
+        const api = new API();
+        const isParkings = await api.parkingLots();
+        if (isParkings) {
+            STORAGE.parkings = isParkings.parkings;
+        }
+    } catch (e) {
+        if (e.toString() === 'TypeError: Failed to fetch') {
+            renderMessage('Потеряно соединение с сервером', true);
+        }
+    }
 
     renderSideBarMenu();
     rootElement.insertAdjacentHTML('beforeend', Handlebars.templates.parkings());
