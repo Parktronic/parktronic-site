@@ -4,9 +4,16 @@
     <div class="search-info__container">
         <p class="search-info__lots">Свободно: <strong>{{parking.free_lots}}</strong>/{{parking.all_lots}}</p>
         <div class="search-button-container">
-            <img class="search-secondary-button" id="search_show-on-map_button_{{parking.id}}" alt="SVG Icon"
+            <img class="map_icon" id="search_show-on-map_button_{{parking.id}}" alt="SVG Icon"
                 src="../../resources/images/icons8-map-24.png">
-            <button class="search-outline-button" id="search_add-parking_button_{{parking.id}}">Добавить</button>
+            {{#if isFavorite}}
+            <img class="heart_icon" id="search_add-parking_button_{{parking.id}}" alt="SVG icon"
+                src="../../resources/images/icons8-heart-filled.svg">
+            {{/if}}
+            {{#unless isFavorite}}
+            <img class="heart_icon" id="search_add-parking_button_{{parking.id}}" alt="SVG icon"
+                src="../../resources/images/icons8-heart-outline.svg">
+            {{/unless}}
         </div>
     </div>
 </div>

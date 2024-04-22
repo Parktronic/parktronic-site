@@ -11,5 +11,5 @@ export let STORAGE = {
  */
 export const clearStorage = () => {
   STORAGE.user = null;
-  STORAGE.forms = [];
+  STORAGE.parking_lots = [];
 };

@@ -50,6 +50,20 @@ export const renderSearch = () => {
 
 
 /**
+ * Функция проверки парковки на нахождении в избранном.
+ *
+ * @function
+ * @param {string} id_parking - ID парковки.
+ * @param {Array} favorites - Массив избранных парковок.
+ * @returns {boolean} - Возвращает true, если парковка находится в избранном, и false в противном случае.
+ */
+const isFavorite = (id_parking, favorites) => {
+    // Проверяем, содержится ли парковка в массиве избранных парковок
+    return favorites.includes(id_parking);
+};
+
+
+/**
  * Функция для поиска.
  *
  * @function
@@ -75,14 +89,16 @@ const search = async () => {
       counter++;
 	    let userParkingDiv = document.createElement('div');
 	    let lotsInfo = countLots(parking.parking_rows);
+		let isFav = isFavorite(parking.id, STORAGE.user.parking_lots);
 	    userParkingDiv.innerHTML = Handlebars.templates.search_info({
         parking:
           {
-						id: parking.id,
-						address: parking.address,
+			id: parking.id,
+			address: parking.address,
             free_lots: lotsInfo.freeLotsCounter,
             all_lots: lotsInfo.allLotsCounter,
-          }
+          },
+		  isFavorite: isFav,
         });
 	    resultsDiv.appendChild(userParkingDiv);
 
@@ -94,20 +110,37 @@ const search = async () => {
 	    const addButton = document.querySelector(`#search_add-parking_button_${parking.id}`);
 	    addButton.addEventListener('click', async () => {
 		    try {
-			    const api = new API();
-			    const res = await api.postFavorite(parking.id);
+			    if (isFavorite(parking.id, STORAGE.user.parking_lots)) {
+					const api = new API();
+					const res = await api.deleteFavorite(parking.id);
 
-			    if (res.message !== 'ok') {
-				    renderMessage(res.message, true);
-				    return;
-			    }
+					if (res.message !== 'ok') {
+						renderMessage(res.message, true);
+						return;
+					}
 
-			    if (res.currentUser) {
-					STORAGE.user = res.currentUser;
+					if (res.currentUser) {
+						STORAGE.user = res.currentUser;
+					}
+
+					goToPage(ROUTES.parking_lots);
+					renderMessage('Вы успешно удалили парковку из избранного');
+				} else {
+					const api = new API();
+					const res = await api.postFavorite(parking.id);
+
+					if (res.message !== 'ok') {
+						renderMessage(res.message, true);
+						return;
+					}
+
+					if (res.currentUser) {
+						STORAGE.user = res.currentUser;
+					}
+
+					goToPage(ROUTES.parking_lots);
+					renderMessage('Вы успешно добавили парковку в избранное');
 				}
-
-			    goToPage(ROUTES.parkings);
-			    renderMessage('Вы успешно добавили парковку в избранное');
 		    } catch (err) {
 			    if (err.toString() !== 'TypeError: Failed to fetch') {
 				    renderMessage('Ошибка сервера. Попробуйте позже', true);
