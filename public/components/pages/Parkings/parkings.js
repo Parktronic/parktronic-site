@@ -104,6 +104,23 @@ const init = async() => {
         }
     );
 
+    // Макет содержимого для прогресс-бара
+    var ProgressBarLayout = ymaps.templateLayoutFactory.createClass(
+        `<div class="map_placemark">` + 
+            `$[properties.freePlaces]` + 
+        `</div>` +
+        '<div class="progressbar">' +
+        '<div class="progressbar-fill" style="width: {{ properties.progress }}%;"></div>' +
+        '</div>', {
+            build: function () {
+                ProgressBarLayout.superclass.build.call(this);
+            },
+            clear: function () {
+                ProgressBarLayout.superclass.clear.call(this);
+            }
+        }
+    );
+
     myMap.controls.remove('searchControl'); // удаляем поиск
     myMap.controls.remove('trafficControl'); // удаляем контроль трафика
     // myMap.controls.remove('typeSelector'); // удаляем тип
@@ -113,40 +130,32 @@ const init = async() => {
         for (let index = 0; index < STORAGE.parkings.length; ++index) {
             const lots = countLots(STORAGE.parkings[index].parking_rows);
 
-            console.log()
-
             const hintContent = STORAGE.parkings[index].address
             const balloonContent = `${STORAGE.parkings[index].address}<br>
                               Количество свободных мест: ${lots.freeLotsCounter}/${lots.allLotsCounter}`;
 
-            // Создаём макет содержимого для меток
-            const MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                `<div class="map_placemark">` + 
-                `$[properties.iconContent]` + 
-                `</div>`
-            );
-
             const myPlacemark = new ymaps.Placemark(
                 STORAGE.parkings[index].coords,
                 {
-                hintContent: hintContent,
-                balloonContent: balloonContent,
-                iconContent: `${lots.freeLotsCounter}/${lots.allLotsCounter}`
+                    hintContent: hintContent,
+                    balloonContent: balloonContent,
+                    freePlaces: `${lots.freeLotsCounter}`,
+                    progress: (lots.freeLotsCounter / lots.allLotsCounter) * 100
                 },
                 {
-                // Необходимо указать данный тип макета.
-                iconLayout: 'default#imageWithContent',
-                // Своё изображение иконки метки.
-                iconImageHref: '../../resources/images/geolocation.png',
-                // Размеры метки.
-                iconImageSize: [50, 50],
-                // Смещение левого верхнего угла иконки относительно
-                // её "ножки" (точки привязки).
-                iconImageOffset: [-25, -50],
-                // Смещение слоя с содержимым относительно слоя с картинкой.
-                iconContentOffset: [0, 10],
-                // Макет содержимого.
-                iconContentLayout: MyIconContentLayout
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#imageWithContent',
+                    // Своё изображение иконки метки.
+                    iconImageHref: '../../resources/images/geolocation-new.png',
+                    // Размеры метки.
+                    iconImageSize: [50, 50],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-25, -50],
+                    // Смещение слоя с содержимым относительно слоя с картинкой.
+                    iconContentOffset: [0, 10],
+                    // Макет содержимого.
+                    iconContentLayout: ProgressBarLayout
                 }
             );
 
