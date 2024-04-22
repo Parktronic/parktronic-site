@@ -1,7 +1,7 @@
 import { API } from '../../../modules/api.js';
 import { removeMessage, renderMessage } from '../../Message/message.js';
 import { STORAGE } from '../../../modules/storage.js';
-import { renderSideBarMenu } from "../../SideBarMenu/sideBarMenu.js";
+import {renderSideBarMenu} from "../../SideBarMenu/side_bar_menu.js";
 
 
 /**
@@ -72,7 +72,7 @@ export const zoom = (map, markCoords) => {
 
 export let myMap;
 
-const init = async() => {
+export const init = async() => {
     myMap = new ymaps.Map('map', {
         center: [55.70578, 37.61786],
         zoom: 11,
@@ -327,9 +327,6 @@ const init = async() => {
  */
 export const renderParkings = async() => {
     removeMessage();
-
-    const rootElement = document.querySelector('#root');
-    rootElement.innerHTML = '';
 
     try {
         const api = new API();

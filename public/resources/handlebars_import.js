@@ -1,11 +1,9 @@
 import '../components/pages/Main/main.precompiled.js';
 import '../components/Navbar/navbar.precompiled.js';
-import '../components/pages/Parkings/parkings.precompiled.js';
+import '../components/SideBarMenu/side_bar_menu.precompiled.js';
 import '../components/pages/Login/login.precompiled.js';
 import '../components/pages/Signup/signup.precompiled.js';
-import '../components/SideBarMenu/sideBarMenu.precompiled.js';
-import '../components/ParkingInfo/parking_info.precompiled.js'
-import '../components/ProfileMenu/profileMenu.precompiled.js'
+import '../components/ProfileMenu/profile_menu.precompiled.js'
 import '../components/Search/search.precompiled.js'
 import '../components/Message/message.precompiled.js'
-import '../components/SearchInfo/search_info.precompiled.js'
+import '../components/ParkingLotInfo/parking_lot_info.precompiled.js'

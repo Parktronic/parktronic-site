@@ -24,32 +24,13 @@
 
 html,
 body,
-#map,
-#root {
+#map {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-.side-bar-menu__close {
-    transform: translate(-250px, 0);
-
-    #side-bar-menu-close-span {
-        right: 100px;
-    }
-}
-
-.side-bar-menu__open {
-    transform: translate(0, 0);
-
-    #side-bar-menu-close-span {
-        top: 6px;
-        right: 80px;
-    }
-}
-
-#side-bar-menu-close-span {
-    font-size: 36px;
-    cursor: pointer;
+#map {
+    z-index: 1;
 }

@@ -1,9 +1,9 @@
 import {ROUTES} from '../config.js';
 import {renderLogin} from '../components/pages/Login/login.js';
 import {renderSignup} from '../components/pages/Signup/signup.js';
-import {renderParkings} from '../components/pages/Parkings/parkings.js';
+import {renderParkingLots} from '../components/pages/ParkingLots/parkings_lots.js';
 import {renderMain} from '../components/pages/Main/main.js';
-import {renderInitial} from '../components/Initial/Initial.js';
+import {renderInitial} from '../components/Initial/initial.js';
 import {render404} from '../components/404/404.js';
 import {navbar} from '../components/Navbar/navbar.js';
 import {removeMessage} from "../components/Message/message.js";
@@ -118,7 +118,7 @@ window.onpopstate = (event) => {
       renderMain();
       break;
     case 'parkings':
-      renderParkings();
+      renderParkingLots();
       break;
     case 'login':
       renderLogin();

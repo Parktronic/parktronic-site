@@ -10,7 +10,7 @@ import {
 import { goToPage } from '../../../modules/router.js';
 import { STORAGE } from '../../../modules/storage.js';
 import { navbar } from "../../Navbar/navbar.js";
-import { debounce } from "../Parkings/parkings.js";
+import {debounce} from "../ParkingLots/parkings_lots.js";
 
 /**
  * Функция для рендеринга страницы регистрации.
@@ -34,6 +34,8 @@ export const toggleFunc = (password, icon) => {
 
 export const renderSignup = async() => {
     removeMessage();
+
+    document.querySelector('#map').innerHTML = '';
     const rootElement = document.querySelector('#root');
     rootElement.innerHTML = '';
     rootElement.innerHTML = Handlebars.templates.signup();

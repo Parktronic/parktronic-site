@@ -15,15 +15,14 @@ export const renderProfileMenu = () => {
         return;
     }
 
-    const navbarElement = document.querySelector('#root');
-    navbarElement.innerHTML += Handlebars.templates.profileMenu();
+    const root = document.querySelector('#root');
+    root.innerHTML += Handlebars.templates.profile_menu();
 
     // Функция убирающая рендер меню, а так же убирающая event listener клика по области вне нее
     const removeProfileMenu = (e) => {
         if (!e.target.classList.contains('navbar-profile-menu') &&
             !e.target.parentNode.classList.contains('navbar-profile-menu')) {
             document.body.removeEventListener('click', removeProfileMenu);
-            navbar();
         }
     };
     document.body.addEventListener('click', removeProfileMenu);

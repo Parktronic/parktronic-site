@@ -1,0 +1,17 @@
+.navbar-profile-menu {
+  position: fixed;
+  z-index: 250;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  text-align: center;
+  box-shadow: 0 0 8px 0 rgba(34, 60, 80, 0.2);
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-profile-menu {
+    bottom: 140px;
+    left: 20px;
+  }
+}
+
+/*# sourceMappingURL=profile_menu.css.map */

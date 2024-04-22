@@ -1,0 +1,33 @@
+{{#if isSmallScreen}}
+<div class="search-form__container" id="search-form__container"></div>
+<div class="search-popup" id="favorites-popup">
+    <div class="search-popup_container" id="popup_container">
+        <div class="search-popup_title_container">
+            <h3 class="search-popup_title">Мои избранные парковки</h3>
+            <img class="search-popup_image" id="favorites-popup-cancel-button"
+                src="../../resources/images/icons8-cross-24.svg" alt="SVG Icon">
+        </div>
+        <div class="user-parkings-container" id="user-park-container"></div>
+    </div>
+</div>
+<div class="mobile-layout_bottom-menu">
+    <img class="mobile-bottom-menu_icons" id="side-bar_profile__name" alt="PNG Icon"
+        src="../../resources/images/icons8-user-40.png"></img>
+    <img class="mobile-bottom-menu_icons" id="open-favourite_button" alt="PNG Icon"
+        src="../../resources/images/icons8-favorite-40.png"></img>
+    <img class="mobile-bottom-menu_icons" alt="PNG Icon" src="../../resources/images/icons8-address-40.png"></img>
+    <img class="mobile-bottom-menu_icons" alt="PNG Icon" src="../../resources/images/icons8-menu-40.png"></img>
+</div>
+{{else}}
+<div class="side-bar-menu side-bar-menu__open">
+    <div class="side-bar_up__container">
+        {{#if user}}
+        <a class="side-bar_profile__name" id="side-bar_profile__name">{{user.first_name}}</a>
+        {{/if}}
+        <span class="material-symbols-outlined" id="side-bar-menu-close-button">menu_open</span>
+    </div>
+    <div id="search-form__container"></div>
+    <h1 class="favourites_header">Мои парковки</h1>
+    <div class="user-parkings-container" id="user-park-container"></div>
+</div>
+{{/if}}

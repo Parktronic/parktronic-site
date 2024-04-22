@@ -1,4 +1,4 @@
-.form-author-menu {
+.side-bar-menu {
     position: fixed;
     z-index: 20;
     left: 0;
@@ -83,93 +83,56 @@
     transition: transform 0.8s;
 }
 
-.form-author-menu__close {
+.side-bar-menu__close {
     transform: translate(-400px, 0);
 
-    #author-menu-close-button {
+    #side-bar-menu-close-button {
         top: 10px;
         right: -45px;
     }
 }
 
-.form-author-menu__open {
+.side-bar-menu__open {
     transform: translate(0, 0);
 
-    #author-menu-close-button {
+    #side-bar-menu-close-button {
         top: 10px;
         right: 8px;
     }
 }
 
-#author-menu-close-button {
+.user-parkings-container {
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#side-bar-menu-close-button {
     position: absolute;
     font-size: 36px;
     cursor: pointer;
 }
 
-@media screen and (max-width: 768px) {
-    .form-author-menu {
-        height: 60px;
-        background: none;
-        bottom: 0;
-        display: flex;
-        padding: 0;
-
-        button {
-            border-radius: 0;
-            justify-content: center;
-            padding-left: 12px;
-        }
-
-        .secondary-button {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .primary-button {
-            margin: 0 0 0 -1px;
-            background-color: white;
-            font-size: 14px;
-        }
+@media screen {
+    .search-form__container {
+        position: fixed;
+        width: 100%;
     }
-
-    .form-author-menu__close {
-        transition: transform 0s;
-        transform: none;
+    .mobile-layout_bottom-menu {
+        z-index: 20;
+        position: fixed;
+        background-color: #FFFFFF;
+        height: 68px;
+        width: 90%;
+        border-radius: 40px;
+        bottom: 40px;
+        margin: 20px;
+        box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+        //display: flex;
     }
-
-    #author-menu-close-button {
-        display: none;
+    .mobile-bottom-menu_icons {
+        padding: 15px 24px;
     }
-}
-
-@media screen and (max-width: 570px) {
-    .form-author-menu {
-        button {
-            padding: 10px 6px;
-
-            span {
-                width: 100%;
-            }
-
-            gap: 4px;
-            flex-wrap: wrap;
-        }
-
-        .secondary-button {
-            font-size: 12px;
-        }
-
-        .primary-button {
-            font-size: 12px;
-        }
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .form-author-menu {
-        button {
-            font-size: 10px;
-        }
+    #favorites-popup {
+        bottom: 130px;
     }
 }

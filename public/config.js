@@ -1,6 +1,6 @@
 import {renderMainLogout} from './components/Logout/logout.js';
 import {renderLogin} from './components/pages/Login/login.js';
-import {renderParkings} from './components/pages/Parkings/parkings.js';
+import {renderParkingLots} from './components/pages/ParkingLots/parkings_lots.js';
 import {renderMain} from './components/pages/Main/main.js';
 import {renderSignup} from './components/pages/Signup/signup.js';
 
@@ -14,7 +14,7 @@ export const ROUTES = {
   parkings: {
     url: '/parkings',
     state: 'parkings',
-    open: renderParkings,
+    open: renderParkingLots,
   },
   signup: {
     url: '/signup',

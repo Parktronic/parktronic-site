@@ -1,28 +1,21 @@
-.search-info {
+parking-lot-info {
     padding: 15px;
     margin-top: 10px;
+    //margin-right: 20px;
+    //margin-left: 20px;
     border-radius: 8px;
     -webkit-box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
     box-shadow: -1px 1px 15px 5px rgba(34, 60, 80, 0.2);
 
-    .search-info__lots {
+    .parking-lot-info__numbers {
         margin-right: auto;
         margin-top: 9px;
     }
 
-    .search-info__container {
+    .parking-lot-info__container {
         margin-top: 10px;
         gap: 32px;
         display: flex;
-    }
-
-    .search-secondary-button {
-        cursor: pointer;
-        height: 20px;
-        width: 20px;
-        padding: 8px;
-        background-color: #f6f6f6;
-        color: #FFFFFF;
         border-radius: 8px;
         box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
     }
@@ -46,19 +39,11 @@
         cursor: pointer;
         padding: 8px;
         border-radius: 8px;
-
-        &:hover {
-            filter: drop-shadow(0px 0px 30px rgba(34, 60, 80, 0.2));
-        }
     }
 
     .heart_icon {
         cursor: pointer;
         padding: 8px;
         border-radius: 8px;
-
-        &:hover {
-            filter: drop-shadow(0px 0px 30px rgba(34, 60, 80, 0.2));
-        }
     }
 }

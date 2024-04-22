@@ -13,6 +13,8 @@ export const renderMain = () => {
         goToPage(ROUTES.parkings);
         return;
     }
+
+    document.querySelector('#map').innerHTML = '';
     const rootElement = document.querySelector('#root');
     rootElement.innerHTML = '';
     rootElement.innerHTML = Handlebars.templates.main();

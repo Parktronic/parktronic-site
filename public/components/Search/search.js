@@ -1,7 +1,7 @@
 import {STORAGE} from "../../modules/storage.js";
-import {countLots, myMap, zoom} from "../pages/Parkings/parkings.js";
+import {countLots, myMap, zoom} from "../pages/ParkingLots/parkings_lots.js";
 import {goToPage} from "../../modules/router.js";
-import {renderMessage} from "../Message/message.js";
+import {removeMessage, renderMessage} from "../Message/message.js";
 import {API} from "../../modules/api.js";
 import {ROUTES} from "../../config.js";
 
@@ -17,6 +17,7 @@ export const renderSearch = () => {
 
 	let searchForm = document.querySelector('#search-form');
 	searchForm.addEventListener('click', () => {
+		closePopUpWindow();
 		renderSearchPopUpWindow();
 
 		document.querySelector('#search-input').focus();
@@ -90,7 +91,7 @@ const search = async () => {
 	    let userParkingDiv = document.createElement('div');
 	    let lotsInfo = countLots(parking.parking_rows);
 		let isFav = isFavorite(parking.id, STORAGE.user.parking_lots);
-	    userParkingDiv.innerHTML = Handlebars.templates.search_info({
+	    userParkingDiv.innerHTML = Handlebars.templates.parking_lot_info({
         parking:
           {
 			id: parking.id,
@@ -99,12 +100,16 @@ const search = async () => {
             all_lots: lotsInfo.allLotsCounter,
           },
 		  isFavorite: isFav,
+		  inSearch: true,
         });
 	    resultsDiv.appendChild(userParkingDiv);
 
 	    const showOnMapButton = document.querySelector(`#search_show-on-map_button_${parking.id}`);
 			showOnMapButton.addEventListener('click', () => {
 				zoom(myMap, parking.coords);
+				if (window.innerWidth <= 480) {
+					closePopUpWindow(true);
+				}
 			});
 
 	    const addButton = document.querySelector(`#search_add-parking_button_${parking.id}`);
@@ -194,19 +199,26 @@ export const renderSearchPopUpWindow =  () => {
  * @function
  * @return {void}
  */
-export const closePopUpWindow = () => {
+export const closePopUpWindow = (isOnMapClick = false) => {
 	enableScroll();
 
 	const searchParkingsContainer = document.querySelector('#parkings-container');
-	searchParkingsContainer.innerHTML = '';
+	if (!isOnMapClick) {
+		searchParkingsContainer.innerHTML = '';
+	}
 
-	const messageContainer = document.querySelector('#search-popup');
-	messageContainer.style.display = 'none';
+	const searchPoPupContainer = document.querySelector('#search-popup');
+	searchPoPupContainer.style.display = 'none';
 
 	const searchForm = document.querySelector('#search-form');
 	if (searchForm.classList.contains('open')) {
 		searchForm.classList.remove('open');
 		resetBoxShadow(searchForm);
+	}
+
+	const favoritePoPupContainer = document.querySelector('#favorites-popup');
+	if (favoritePoPupContainer){
+		favoritePoPupContainer.style.display = 'none';
 	}
 };
 

@@ -241,10 +241,6 @@ export class API {
         message = 'Такой парковки не существует.';
       }
 
-      if (res.status === 422) {
-        message ='Парковка уже добавлена.';
-      }
-
       const body = await res.json();
 
       let currentUser = null;

@@ -3,10 +3,10 @@ import { API } from '../../../modules/api.js';
 import { renderMessage, removeMessage } from '../../Message/message.js';
 import { emailValidation, passwordValidation } from '../../../modules/validation.js';
 import { goToPage } from '../../../modules/router.js';
-import { STORAGE } from '../../../modules/storage.js';
-import { toggleFunc } from "../Signup/signup.js";
-import { navbar } from "../../Navbar/navbar.js";
-import { debounce } from "../Parkings/parkings.js";
+import {STORAGE} from '../../../modules/storage.js';
+import {toggleFunc} from "../Signup/signup.js";
+import {navbar} from "../../Navbar/navbar.js";
+import {debounce} from "../ParkingLots/parkings_lots.js";
 
 /**
  * Функция для рендеринга страницы аутенфикации.
@@ -18,7 +18,9 @@ import { debounce } from "../Parkings/parkings.js";
 export const renderLogin = async() => {
     removeMessage();
 
+    document.querySelector('#map').innerHTML = '';
     const rootElement = document.querySelector('#root');
+
     rootElement.innerHTML = '';
     rootElement.innerHTML = Handlebars.templates.login();
 
