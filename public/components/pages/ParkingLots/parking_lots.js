@@ -176,41 +176,43 @@ const rerenderParkingLotsEveryFewSeconds = async (intervalInSeconds) => {
  * @return {void}
  */
 const drawAllParkingLots = (parkingLots) => {
-  // Переменная с описанием двух видов иконок кластеров.
-  let clusterIcons = [
-    {
-        href: '../../resources/images/cluster.png',
-        size: [40, 40],
-        // Отступ, чтобы центр картинки совпадал с центром кластера.
-        offset: [-20, -20],
-        // Можно задать геометрию активной области метки.
-        // Если геометрия не задана, активной областью будет
-        // прямоугольник.
-        shape: {
-            type: 'Circle',
-            coordinates: [0, 0],
-            // Радиус = 0, чтобы нельзя было нажать на кластер
-            radius: 0,
-         }
-    }];
+    myMap.geoObjects.removeAll();
 
-  // Добавление кластеров
-  let myClusterer = new ymaps.Clusterer(
-    {
-      clusterIcons: clusterIcons,
-      // Приближение к парковкам при нажатии
-      clusterDisableClickZoom: true,
-      // Открытие балуна запрещаем
-      openBalloonOnClick: false,
-    }
-  );
+    // Переменная с описанием двух видов иконок кластеров.
+    let clusterIcons = [
+        {
+            href: '../../resources/images/cluster.png',
+            size: [40, 40],
+            // Отступ, чтобы центр картинки совпадал с центром кластера.
+            offset: [-20, -20],
+            // Можно задать геометрию активной области метки.
+            // Если геометрия не задана, активной областью будет
+            // прямоугольник.
+            shape: {
+                type: 'Circle',
+                coordinates: [0, 0],
+                // Радиус = 0, чтобы нельзя было нажать на кластер
+                radius: 0,
+            }
+        }];
 
-  if (parkingLots && parkingLots !== []) {
-    for (let index = 0; index < parkingLots.length; ++index) {
-      drawParkingLot(parkingLots[index], myClusterer);
+    // Добавление кластеров
+    let myClusterer = new ymaps.Clusterer(
+        {
+        clusterIcons: clusterIcons,
+        // Приближение к парковкам при нажатии
+        clusterDisableClickZoom: true,
+        // Открытие балуна запрещаем
+        openBalloonOnClick: false,
+        }
+    );
+
+    if (parkingLots) {
+        for (let index = 0; index < parkingLots.length; ++index) {
+            drawParkingLot(parkingLots[index], myClusterer);
+        }
+        myMap.geoObjects.add(myClusterer);
     }
-    myMap.geoObjects.add(myClusterer);
-  }
 }
 
 
@@ -419,4 +421,4 @@ const drawParkingLot = (parkingLot, myClusterer) => {
             point1.y = next_point1.y;
         }
     }
-}
+};
