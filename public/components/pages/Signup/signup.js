@@ -10,7 +10,7 @@ import {
 import { goToPage } from '../../../modules/router.js';
 import { STORAGE } from '../../../modules/storage.js';
 import { navbar } from "../../Navbar/navbar.js";
-import {debounce} from "../ParkingLots/parkings_lots.js";
+import {debounce} from "../../../modules/validation.js";
 
 /**
  * Функция для рендеринга страницы регистрации.

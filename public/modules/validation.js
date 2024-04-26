@@ -155,3 +155,22 @@ export const textValidation = (text) => {
   valid = true;
   return {valid, message: 'Проверка валидации форм'};
 };
+
+/**
+ * Функция для выполнения другой функции регулярно через определенную задержку времени.
+ *
+ * @async
+ * @function
+ * @param func - Функция, которая будет выполняться.
+ * @param delay - Задержка (в мс).
+ * @return {void}
+ */
+export const debounce = async (func, delay) => {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), delay);
+  }
+};
