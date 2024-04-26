@@ -56,30 +56,12 @@ export const renderSignup = async() => {
         toggleFunc(password, icon);
     });
 
-    const firstName = document.querySelector('#name');
     const email = document.querySelector('#email');
-    const username = document.querySelector('#username');
     const password = document.querySelector('#password');
     const repeatPassword = document.querySelector('#repeat_password');
 
-    let isNameValid = true;
     let isEmailValid = true;
-    let isUsernameValid = true;
     let isPasswordValid = true;
-
-    firstName.addEventListener("input", debounce((e) => {
-        e.preventDefault();
-
-        const nameValid = nameValidation(firstName.value);
-
-        if (nameValid.valid) {
-            removeMessage();
-            isNameValid = true;
-        } else {
-            renderMessage(nameValid.message, true);
-            isNameValid = false;
-        }
-    }, 500));
 
     email.addEventListener("input", debounce((e) => {
         e.preventDefault();
@@ -92,20 +74,6 @@ export const renderSignup = async() => {
         } else {
             renderMessage(emailValid.message, true);
             isEmailValid = false;
-        }
-    }, 500));
-
-    username.addEventListener("input", debounce((e) => {
-        e.preventDefault();
-
-        const usernameValid = usernameValidation(e.target.value);
-
-        if (usernameValid.valid) {
-            removeMessage();
-            isUsernameValid = true;
-        } else {
-            renderMessage(usernameValid.message, true);
-            isUsernameValid = false;
         }
     }, 500));
 
@@ -127,13 +95,12 @@ export const renderSignup = async() => {
     signupButton.addEventListener('click', async(e) => {
         e.preventDefault();
 
-        if (password.value === '' || email.value === '' || firstName.value === '' ||
-            username.value === '' || repeatPassword.value === '') {
+        if (password.value === '' || email.value === '' || repeatPassword.value === '') {
             renderMessage('Вы ввели не все данные', true);
             return;
         }
 
-        if (!isNameValid || !isEmailValid || !isUsernameValid || !isPasswordValid) {
+        if (!isEmailValid || !isPasswordValid) {
             return;
         }
 
@@ -145,8 +112,6 @@ export const renderSignup = async() => {
         try {
             const api = new API();
             const res = await api.userSignup(
-                firstName.value,
-                username.value,
                 email.value,
                 password.value,
             );

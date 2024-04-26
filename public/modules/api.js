@@ -129,16 +129,14 @@ export class API {
    *
    * @async
    * @function
-   * @param {string} first_name - Имя.
-   * @param {string} username - Имя пользователя.
    * @param {string} email - Почта.
    * @param {string} password - Пароль.
-   * @return {Promise<{registeredUser: ({password: *, name: *, email: *, username: *} | null),
+   * @return {Promise<{registeredUser: ({password: *, email: *} | null),
    * message: string}>} Объект с информацией о статусе регистрации и о пользователе.
    * @throws {Error} Если произошла ошибка при запросе или обработке данных.
    */
   // eslint-disable-next-line camelcase
-  async userSignup(first_name, username, email, password) {
+  async userSignup(email, password) {
     try {
       const url =  backendUrl + ROUTES_API.signup.url;
 
@@ -149,7 +147,7 @@ export class API {
         },
         credentials: 'include',
         body: JSON.stringify({
-          first_name, username, email, password,
+          email, password,
         }),
       });
 
