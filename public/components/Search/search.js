@@ -37,6 +37,14 @@ export const renderSearch = () => {
 	})
 
 	const searchInput = document.querySelector('#search-input');
+	const debouncedSearch = debounce(() => {
+		search();
+	}, 300);
+	// search() будет вызываться только спустя 300 миллисекунд
+	// после последнего ввода символа, что позволяет уменьшить
+	// нагрузку на систему при быстром наборе текста
+	searchInput.addEventListener("input", debouncedSearch);
+
 	searchInput.addEventListener("keypress", (e) => {
 		if (e.keyCode === 13) {
 			search();
@@ -49,6 +57,15 @@ export const renderSearch = () => {
 		}
 	});
 };
+
+
+function debounce(func, wait) {
+	let timeout;
+	return function(...args) {
+		clearTimeout(timeout);
+		timeout = setTimeout(() => func.apply(this, args), wait);
+	};
+}
 
 
 /**
