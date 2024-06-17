@@ -112,7 +112,7 @@
     cursor: pointer;
 }
 
-@media screen {
+@media screen and (max-width: 480px) {
     .search-form__container {
         position: fixed;
         width: 100%;
@@ -125,11 +125,15 @@
         width: 90%;
         border-radius: 40px;
         bottom: 40px;
-        margin: 20px;
+        margin: 5%;
         box-shadow: 0 4px 4px 0 rgba(34, 60, 80, 0.3);
+        box-sizing: border-box;
+        padding: 20px;
+        justify-content: space-between;
     }
     .mobile-bottom-menu_icons {
-        padding: 15px 24px;
+        width: 30px;
+        padding: 0 6.8%;
     }
     #favorites-popup {
         bottom: 130px;

@@ -1,9 +1,10 @@
 import {STORAGE} from "../../modules/storage.js";
 import {countLots, myMap, zoom} from "../pages/ParkingLots/parkings_lots.js";
 import {goToPage} from "../../modules/router.js";
-import {removeMessage, renderMessage} from "../Message/message.js";
+import {renderMessage} from "../Message/message.js";
 import {API} from "../../modules/api.js";
 import {ROUTES} from "../../config.js";
+
 
 /**
  * Функция для рендеринга поиска.

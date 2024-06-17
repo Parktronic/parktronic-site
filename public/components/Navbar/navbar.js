@@ -30,13 +30,25 @@ export const navbar = () => {
         });
 
         const logoButton = document.querySelector('#navbar-logo-label');
-        logoButton.addEventListener('click', () => {
-            removeMessage();
-            if (!STORAGE.user) {
-                goToPage(ROUTES.main);
-            } else {
-                goToPage(ROUTES.parkings);
-            }
-        });
-    }
+    logoButton.addEventListener('click', handleLogoClick);
+
+    const iconButton = document.querySelector('#navbar-parktronic-icon');
+    iconButton.addEventListener('click', handleLogoClick)
+  }
+};
+
+
+/**
+ * Функция для обработки нажатия на лого навбара.
+ *
+ * @function
+ * @return {void}
+ */
+function handleLogoClick() {
+  removeMessage();
+  if (!STORAGE.user) {
+    goToPage(ROUTES.main);
+  } else {
+    goToPage(ROUTES.parking_lots);
+  }
 };
